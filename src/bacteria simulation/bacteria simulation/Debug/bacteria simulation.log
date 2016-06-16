@@ -1,0 +1,8 @@
+﻿  Environment.cpp
+c:\users\kainan\documents\visual studio 2015\projects\bacteria simulation\bacteria simulation\environment.cpp(23): warning C4018: '<': signed/unsigned mismatch
+c:\users\kainan\documents\visual studio 2015\projects\bacteria simulation\bacteria simulation\environment.cpp(31): warning C4018: '<': signed/unsigned mismatch
+c:\users\kainan\documents\visual studio 2015\projects\bacteria simulation\bacteria simulation\environment.cpp(35): warning C4018: '<': signed/unsigned mismatch
+c:\users\kainan\documents\visual studio 2015\projects\bacteria simulation\bacteria simulation\environment.cpp(41): warning C4018: '<': signed/unsigned mismatch
+c:\users\kainan\documents\visual studio 2015\projects\bacteria simulation\bacteria simulation\environment.cpp(44): warning C4018: '<': signed/unsigned mismatch
+  bacteria simulation.vcxproj -> C:\Users\Kainan\Documents\Visual Studio 2015\Projects\bacteria simulation\Debug\bacteria simulation.exe
+  bacteria simulation.vcxproj -> C:\Users\Kainan\Documents\Visual Studio 2015\Projects\bacteria simulation\Debug\bacteria simulation.pdb (Partial PDB)
