@@ -2,11 +2,21 @@
 #include "Bacterium.h"
 #include "Helper.h"
 #include <cmath>
+#include <sstream>
 
 using namespace std;
 
 double Bacterium::getSpeed() {
 	return BASE_SPEED / (radius / BASE_SIZE);
+}
+
+void Bacterium::log(vector<Bacterium>& bacteria) {
+	stringstream ss;
+	ss << radius;
+	for (int i = 0; i < bacteria.size(); ++i) {
+		ss << " " << bacteria[i].positionX - positionX << " " << bacteria[i].positionY - positionY << " " << bacteria[i].radius;
+	}
+	history.push_back(ss.str());
 }
 
 void Bacterium::move() {
@@ -17,12 +27,16 @@ void Bacterium::move() {
 	positionY += directionY;
 	if (positionX > 1 || positionX < 0) directionX = -directionX;
 	if (positionY > 1 || positionY < 0) directionY = -directionY;
+	energy -= radius * radius * 0.05;
+	++age;
 }
 
 void Bacterium::initialize() {
 	positionX = uniform(generator);
 	positionY = uniform(generator);
 	radius = (1 + geometric(generator)) * BASE_SIZE;
+	energy = radius * radius;
+	age = 0;
 }
 
 void Bacterium::updateDirection(vector<Bacterium>& bacteria) {
@@ -41,7 +55,8 @@ double Bacterium::dist(const Bacterium& b) {
 		(positionY - b.positionY) * (positionY - b.positionY));
 }
 
-void SimpleBacterium::updateDirection(vector<Bacterium> bacteria) {
+
+void SimpleBacterium::updateDirection(vector<Bacterium>& bacteria) {
 	Bacterium::updateDirection(bacteria);
 	double max_radius = radius;
 	for (int i = 0; i < bacteria.size(); i++)
