@@ -6,7 +6,9 @@ class Bacterium
 public:
 	double positionX, positionY;
 	double radius;
+	double energy;
 	double theta;
+	int age;
 
 	double getSpeed();
 	void move();

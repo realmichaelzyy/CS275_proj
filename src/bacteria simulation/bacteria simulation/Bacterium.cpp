@@ -17,12 +17,16 @@ void Bacterium::move() {
 	positionY += directionY;
 	if (positionX > 1 || positionX < 0) directionX = -directionX;
 	if (positionY > 1 || positionY < 0) directionY = -directionY;
+	energy -= radius * radius * 0.05;
+	++age;
 }
 
 void Bacterium::initialize() {
 	positionX = uniform(generator);
 	positionY = uniform(generator);
 	radius = (1 + geometric(generator)) * BASE_SIZE;
+	energy = radius * radius;
+	age = 0;
 }
 
 void Bacterium::updateDirection(vector<Bacterium>& bacteria) {
