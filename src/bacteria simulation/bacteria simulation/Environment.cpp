@@ -72,7 +72,10 @@ void Environment::run(int tickNumber) {
 
 		// eliminate all bacteria with negative energy
 		for (int i = 0; i < bacteria.size(); ++i) {
-			if (bacteria[i].energy < 0) visited[i] = true;
+			if (bacteria[i].energy < 0) {
+				visited[i] = true;
+				
+			}
 		}
 
 		for (int i = 0; i < bacteria.size(); ++i) {
@@ -87,7 +90,6 @@ void Environment::run(int tickNumber) {
 					newB.radius = sqrt(b.radius * b.radius + t.radius * t.radius);
 					b = newB;
 					visited[j] = true;
-					
 				}
 			}
 			newBacteria.push_back(b);
