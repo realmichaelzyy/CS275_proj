@@ -1,4 +1,5 @@
-#pragma once
+#pragma 
+
 class Bacterium
 {
 public:
@@ -10,4 +11,11 @@ public:
 	void initialize();
 	void updateDirection(const vector<Bacterium> bacteria);
 	bool touch(const Bacterium& b);
+	double dist(const Bacterium b);
 };
+
+class SimpleBacterium : Bacterium 
+{
+pulic:
+	void updateDirection(const vector<Bacterium> bacteria);
+}
