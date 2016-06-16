@@ -35,14 +35,14 @@ bool Bacterium::touch(const Bacterium& b) {
 		(positionY - b.positionY) * (positionY - b.positionY);
 }
 
-bool Bacterium::dist(const Bacterium& b) {
+double Bacterium::dist(const Bacterium& b) {
 	return sqrt(
 		(positionX - b.positionX) * (positionX - b.positionX) + 
 		(positionY - b.positionY) * (positionY - b.positionY));
 }
 
 void SimpleBacterium::updateDirection(vector<Bacterium> bacteria) {
-	super::updateDirection(vector<Bacterium>& bacteria);
+	Bacterium::updateDirection(bacteria);
 	double max_radius = radius;
 	for (int i = 0; i < bacteria.size(); i++)
 	{
