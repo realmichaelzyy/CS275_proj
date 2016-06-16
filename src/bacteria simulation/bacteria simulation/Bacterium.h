@@ -13,7 +13,8 @@ public:
 	void initialize();
 	void updateDirection(std::vector<Bacterium>& bacteria);
 	bool touch(const Bacterium& b);
-	double dist(const Bacterium b);
+	double dist(const Bacterium& b);
+
 };
 
 class SimpleBacterium : Bacterium 

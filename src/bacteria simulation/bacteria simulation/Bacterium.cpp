@@ -1,6 +1,7 @@
 #define _USE_MATH_DEFINES
 #include "Bacterium.h"
 #include "Helper.h"
+#include <cmath>
 
 using namespace std;
 
@@ -32,4 +33,14 @@ bool Bacterium::touch(const Bacterium& b) {
 	return (radius + b.radius) * (radius + b.radius) >
 		(positionX - b.positionX) * (positionX - b.positionX) +
 		(positionY - b.positionY) * (positionY - b.positionY);
+}
+
+bool Bacterium::dist(const Bacterium& b) {
+	return sqrt(
+		(positionX - b.positionX) * (positionX - b.positionX) + 
+		(positionY - b.positionY) * (positionY - b.positionY));
+}
+
+void SimpleBacterium::updateDirection(const vector<Bacterium> bacteria) {
+
 }
