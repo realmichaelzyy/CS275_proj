@@ -4,7 +4,14 @@
 
 using namespace std;
 
+double Bacterium::getSpeed() {
+	return BASE_SPEED / (radius / BASE_SIZE);
+}
+
 void Bacterium::move() {
+	double speed = getSpeed();
+	double directionX = speed * cos(theta);
+	double directionY = speed * sin(theta);
 	positionX += directionX;
 	positionY += directionY;
 	if (positionX > 1 || positionX < 0) directionX = -directionX;
@@ -17,11 +24,8 @@ void Bacterium::initialize() {
 	radius = (1 + geometric(generator)) * BASE_SIZE;
 }
 
-void Bacterium::updateDirection() {
-	double theta = (uniform(generator) - 0.5) * 2 * M_PI;
-	double speed = BASE_SPEED / (radius / BASE_SIZE);
-	directionX = speed * cos(theta);
-	directionY = speed * sin(theta);
+void Bacterium::updateDirection(vector<Bacterium>& bacteria) {
+	theta = (uniform(generator) - 0.5) * 2 * M_PI;
 }
 
 bool Bacterium::touch(const Bacterium& b) {

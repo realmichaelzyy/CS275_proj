@@ -30,7 +30,7 @@ void Environment::run(int tickNumber) {
 	for (int tick = 0; tick < tickNumber; ++tick) {
 		for (int i = 0; i < bacteria.size(); ++i) {
 			Bacterium& b = bacteria[i];
-			b.updateDirection();
+			b.updateDirection(bacteria);
 		}
 		for (int i = 0; i < bacteria.size(); ++i) {
 			Bacterium& b = bacteria[i];
