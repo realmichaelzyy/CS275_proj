@@ -20,5 +20,5 @@ public:
 class SimpleBacterium : Bacterium 
 {
 public:
-	void updateDirection(const vector<Bacterium> bacteria);
+	void updateDirection(std::vector<Bacterium> bacteria);
 };

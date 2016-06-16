@@ -41,6 +41,16 @@ bool Bacterium::dist(const Bacterium& b) {
 		(positionY - b.positionY) * (positionY - b.positionY));
 }
 
-void SimpleBacterium::updateDirection(const vector<Bacterium> bacteria) {
-
+void SimpleBacterium::updateDirection(vector<Bacterium> bacteria) {
+	super::updateDirection(vector<Bacterium>& bacteria);
+	double max_radius = radius;
+	for (int i = 0; i < bacteria.size(); i++)
+	{
+		if (bacteria[i].radius > max_radius) {
+			max_radius = bacteria[i].radius;
+			double dy = positionY - bacteria[i].positionY;
+			double dx = positionX - bacteria[i].positionX;
+			theta = atan2(dy, dx);
+		}
+	}
 }
