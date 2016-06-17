@@ -4,9 +4,11 @@ using namespace std;
 
 Environment::Environment()
 {
+	
 }
 
 Environment::Environment(int size) {
+	fout.open("test.txt", std::fstream::out);
 	bacteria.clear();
 	for (int k = 0; k < size; ++k) {
 		Bacterium bacterium;
@@ -17,6 +19,7 @@ Environment::Environment(int size) {
 
 Environment::~Environment()
 {
+	fout.close();
 }
 
 void Environment::display() {
@@ -27,6 +30,8 @@ void Environment::display() {
 }
 
 void Environment::run(int tickNumber) {
+	vector<Bacterium> winner;
+
 	for (int tick = 0; tick < tickNumber; ++tick) {
 		
 		// Add bacteria when not enough
@@ -63,6 +68,7 @@ void Environment::run(int tickNumber) {
 
 		for (int i = 0; i < bacteria.size(); ++i) {
 			Bacterium& b = bacteria[i];
+			b.log(bacteria);
 			b.move();
 		}
 
@@ -75,6 +81,14 @@ void Environment::run(int tickNumber) {
 			if (bacteria[i].energy < 0) {
 				visited[i] = true;
 				
+				// log 
+				winner.push_back(bacteria[i]);
+				int k = bacteria.size() - 1;
+				while (k > 0 && bacteria[k].age > bacteria[k - 1].age) {
+					swap(bacteria[k], bacteria[k - 1]);
+					--k;
+				}
+				if (winner.size() > 10) winner.pop_back();
 			}
 		}
 
@@ -96,7 +110,19 @@ void Environment::run(int tickNumber) {
 		}
 		bacteria = newBacteria;
 		display();
-		system("pause");
 	}
 	
+	int sampleCount = 0;
+	for (int i = 0; i < winner.size(); ++i) {
+		Bacterium b = winner[i];
+		sampleCount += winner[i].history.size();
+	}
+	fout << sampleCount << " " << 31 << " " << 1 << endl;
+	for (int i = 0; i < winner.size(); ++i) {
+		Bacterium b = winner[i];
+		for (int i = 0; i < b.history.size(); ++i) {
+			fout << b.history[i];
+		}
+	}
+	fout.flush();
 }

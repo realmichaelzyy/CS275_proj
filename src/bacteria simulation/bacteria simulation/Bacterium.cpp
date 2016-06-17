@@ -19,10 +19,15 @@ void Bacterium::log(vector<Bacterium>& bacteria) {
 	for (int i = 0; i < bacteria.size(); ++i) {
 		ss << " " << bacteria[i].positionX - positionX << " " << bacteria[i].positionY - positionY << " " << bacteria[i].radius;
 	}
+	ss << endl;
+	ss << theta << endl;
+	//cout << ss.str();
+	//system("pause");
 	history.push_back(ss.str());
 }
 
 void Bacterium::move() {
+
 	double speed = getSpeed();
 	double directionX = speed * cos(theta);
 	double directionY = speed * sin(theta);

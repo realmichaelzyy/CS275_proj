@@ -4,13 +4,14 @@
 #include <cstdlib>
 #include <vector>
 #include <random>
+#include <fstream>
 #include "Bacterium.h"
 
 class Environment
 {
 public:
 	std::vector<Bacterium> bacteria;
-	
+	std::ofstream fout;
 	Environment();
 	~Environment();
 	Environment(int size);
