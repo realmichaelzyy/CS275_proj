@@ -1,0 +1,1449 @@
+% security.bib
+% Desc: (on topic)  
+%	papers, books and misc info on security and privacy, including relevant work to our security projects, as well as major publications in top four security conferences (S\&P, CCS, Security, NDSS) 
+%
+% History: 
+% 	Chunyi Peng, v1.0, 2014/08/03
+%
+% Naming convention
+% 	bibitem: 
+%		[LastName][Year]-[Keyword], 		% this is mainly used for some well-known or work we are familiar with.  E.g, traynor07-sms (
+% 		[LastName][Year]-[conf],   			% this is mainly used for paper reading for general study (find some relevant work)
+%		[LastName][Year]-[conf]-[Keyword]
+%		%	Note: the exception is the standard (it is standard ref number, e.g, TS23.001, or rfc2001)
+%
+%     inproceedings (conference)
+% 		authors (mandatory):   Please list the full list: author 1 and author 2 and author 3 ... 
+%			Notes: when the author list is too long, in your local version (for one submission), you can use "authors 1 and authors 2 and ... and others" to save space.
+%     		booktitle (mandatory):  (1) for well-known conference, use short names. If you want to save the full name, please use % to comment them near the bib item;  (2) otherwise, use full names. 
+%		year (mandatory)
+% 		pages (no need. Please remove it). Please use % to comment them near the bib item in case you want to keep it.
+%	article (journal, magazine)
+%		authors (mandatory, same as above)
+%		journal (mandatory, same as above)
+% 		year (mandatory)
+%		volume, number and pages: mandatory (highly recommended)
+% 	misc
+%		author (it depends, optional)
+% 		title (mandatory)
+%		note (likely mandatory): offers the info (url links) to it
+
+
+
+%============== Books ================
+% 
+@book{cheswick03-firewall,
+ author = {Cheswick, William R. and Bellovin, Steven M. and Rubin, Aviel D.},
+ title = {Firewalls and Internet Security: Repelling the Wily Hacker},
+ year = {2003},
+ isbn = {020163466X},
+ edition = {2},
+ publisher = {Addison-Wesley Longman Publishing Co., Inc.},
+ address = {Boston, MA, USA},
+} 
+
+@book{wayner08-disappearing,
+ author = {Peter Wayner},
+ title = {Disappearing Cryptography: Information Hiding: Steganography and Watermarking (Third Edition)},
+ year = {2008},
+ edition = {3rd},
+ publisher = {Morgan Kaufmann Publishers Inc.},
+ address = {San Francisco, CA, USA},
+} 
+
+%====================================
+
+@misc{tor,
+title={Tor},
+note={https://www.torproject.org/},
+}
+
+
+%RFC3329:  Security Mechanism Agreement for the Session Initiation Protocol (SIP)
+        
+%cao06-voip
+% Communications Magazine, IEEE ...> Volume:44 Issue:4  2006,
+%Vulnerability analysis and best practices for adopting IP telephony in critical infrastructure sectors
+% Feng Cao and Malik, S.
+
+% solution to voip attacks, using honeypot
+@inproceedings{carmo11-voip-artemisa,
+  author = {do Carmo, Rodrigo and Nassar, Mohamed and Festor, Olivier},
+  booktitle = {Integrated Network Management},
+  title = {Artemisa: An open-source honeypot back-end to support security in VoIP domains},
+  year = 2011
+}
+
+
+ 
+@book{keromytis11-voip-security,
+author ={Angelos D. Keromytis},
+title = {Voice over IP Security: A Comprehensive Survey of Vulnerabilities and Academic Research},
+publisher = {Springer Science \& Business Media},
+month = {March},
+year = {2011},
+}
+
+
+
+@ARTICLE{keromytis10-voipsecurity,
+    author = {Angelos D. Keromytis},
+    title = {Voice-over-IP Security: Research and Practice},
+    journal = {IEEE Security \& Privacy},
+    year = {2010},
+    pages = {76--78}
+}
+
+%Proceedings of the First USENIX Workshop on Offensive Technologies
+@inproceedings{zhang07-sip-signaling,
+ author = {Zhang, Ruishan and Wang, Xinyuan and Yang, Xiaohui and Jiang, Xuxian},
+ title = {Billing Attacks on SIP-based VoIP Systems},
+ booktitle = {USENIX WOOT},
+ year = {2007},
+ numpages = {8},
+ } 
+
+@article{geneiatakis06-sip-survey,
+ author = {Geneiatakis, Dimitris and Dagiuklas, Tasos and Kambourakis, Georgios and Lambrinoudakis, Costas and Gritzalis, Stefanos and Ehlert, Sven and Sisalem, Dorgham},
+    journal = {IEEE Communications Surveys and Tutorials},
+  title = {Survey of security vulnerabilities in session initiation protocol},
+  volume = 8,
+  year = 2006
+}
+
+         
+@INPROCEEDINGS{geneiatakis05-sip,
+    author = {Dimitris Geneiatakis and Georgios Kambourakis and Tasos Dagiuklas and Costas Lambrinoudakis and Stefanos Gritzalis},
+    title = {SIP security mechanisms: A state-of-the-art review},
+    booktitle = {the 5th International Network Conference (INC},
+    year = {2005},
+    pages = {147--155},
+    publisher = {ACM}
+}
+          
+@ARTICLE{salsano02-sip,
+    author = {Stefano Salsano and Luca Veltri and Donald Papalilo and Consortium Telecommunications},
+    title = {SIP security issues: the SIP authentication procedure and its processing load},
+    journal = {IEEE Network},
+    year = {2002},
+    pages = {38--44}
+}
+
+@inproceedings{mulliner11-security-sms,
+  author = {Collin Mulliner and Nico Golde and Jean-Pierre Seifert},
+  title = {{SMS of Death: from analyzing to attacking mobile phones on a large scale}},
+  booktitle = {Security},
+ year = {2011},
+ }
+
+%============ NDSS'13 ============
+@inproceedings{tey13-ndss-keystroke,
+  author = {Tey, Chee Meng and Gupta, Payas and Gao, Debin},
+  title = {{I can be You: Questioning the use of Keystroke Dynamics as Biometrics}},
+  booktitle = {IEEE NDSS},
+ year = {2013},
+ keywords={authentication, Keystroke Dynamics, biometrics},
+ abstract={This paper shows that contrary to the beliefs of prior studies, typing patterns of individuals can be imitated. Our results from a large scale user study of over 80 participants show that various factors such as the password used, gender, monetary incentives, time allowed and information about the target typing pattern affects the success rate of the attacker.}
+}
+
+@inproceedings{li13-ndss-reauth,
+  author = {Lingjun Li and Xinxin Zhao and Guoliang Xue},
+  title = {{Unobservable Re-authentication for Smartphones}},
+  booktitle = {IEEE NDSS},
+ year = {2013},
+ }
+ 
+  %%lever-ndss13,
+@inproceedings{lever13-ndss-cellular,
+  author = {Lever, Charles and Antonakakis, Manos and Reaves, Bradley and Traynor, Patrick and Lee, Wenke},
+  booktitle = {IEEE NDSS},
+  title = {{The Core of the Matter: Analyzing Malicious Traffic in Cellular Carriers}},
+  year = {2013},
+}
+
+@inproceedings{smalley13-ndss-se,
+  author = {Stephen Smalley and Robert Craig},
+   title = {{Security Enhanced (SE) Android: Bringing Flexible MAC to Android}},
+   booktitle = {IEEE NDSS},
+   year = {2013},
+}
+
+@inproceedings{houmansadr13-ndss-freewave,
+  author = {Amir Houmansadr and Thomas Riedl and Nikita Borisov and Andrew Singer},
+   title = {{I want my voice to be heard: IP over Voice-over-IP for Unobservable Censorship Circumvention}},
+    booktitle = {IEEE NDSS},
+  year = {2013},
+}
+
+%============ USENIX Security'13 ============
+@inproceedings {jiang13-security-greystar,
+author = {Nan Jiang and Yu Jin and Ann Skudlark and Zhi-Li Zhang},
+title = {Greystar: Fast and Accurate Detection of SMS Spam Numbers in Large Cellular Networks Using Gray Phone Space},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+@inproceedings {golde13-security-broadcast,
+author = {Nico Golde and Kevin Redon and Jean-Pierre Seifert},
+title = {Let Me Answer That for You: Exploiting Broadcast Information in Cellular Networks},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+@inproceedings{paxson13-security-dns,
+author = {Vern Paxson and Mihai Christodorescu and Mobin Javed and Josyula Rao and Reiner Sailer and Douglas Lee Schales and Mark Stoecklin and Kurt Thomas and Wietse Venema and Nicholas Weaver},
+title = {Practical Comprehensive Bounds on Surreptitious Communication over DNS},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+@inproceedings{roesner13-security-ui,
+author = {Franziska Roesner and Tadayoshi Kohno},
+title = {Securing Embedded User Interfaces: Android and Beyond},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+@inproceedings{livshits13-security-privacy,
+author = {Benjamin Livshits and Jaeyeon Jung},
+title = {Automatic Mediation of Privacy-Sensitive Resource Access in Smartphone Applications},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+@inproceedings{zhang13-security-control,
+author = {Mingwei Zhang and R. Sekar},
+title = {Control Flow Integrity for COTS Binaries},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+@inproceedings{zhao13-security-auth,
+author = {Ziming Zhao and Gail-Joon Ahn and Jeong-Jin Seo and Hongxin Hu},
+title = {On the Security of Picture Gesture Authentication},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+pcynote={did a security analysis of one security feature in windows 8: authentication via picture gesture. It analyzes how users use pictures (circle, line, tap) to generate graphic password.}
+}
+
+@inproceedings{wang13-security-sdk,
+author = {Rui Wang and Yuchen Zhou and Shuo Chen and Shaz Qadeer and David Evans and Yuri Gurevich},
+title = {Explicating SDKs: Uncovering Assumptions Underlying Secure Authentication and Authorization},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+
+@inproceedings{jana13-security-ar,
+author = {Suman Jana and David Molnar and Alexander Moshchuk and Alan Dunn and Benjamin Livshits and Helen J. Wang and Eyal Ofek},
+title = {Enabling Fine-Grained Permissions for Augmented Reality Applications with Recognizers},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+@inproceedings{pandita13-security-whyper,
+author = {Rahul Pandita and Xusheng Xiao and Wei Yang and William Enck and Tao Xie},
+title = {WHYPER: Towards Automating Risk Assessment of Mobile Applications},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+@inproceedings{octeau1e-secuirty-intercomponent,
+author = {Damien Octeau and Patrick McDaniel and Somesh Jha and Alexandre Bartel and Eric Bodden and Jacques Klein and Yves Le Traon},
+title = {Effective Inter-Component Communication Mapping in Android: An Essential Step Towards Holistic Security Analysis},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+@inproceedings{wang13-security-jekyll,
+author = {Tielei Wang and Kangjie Lu and Long Lu and Simon Chung and Wenke Lee},
+title = {Jekyll on iOS: When Benign Apps Become Evil},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+@inproceedings{xing13-security-pollution,
+author = {Xingyu Xing and Wei Meng and Dan Doozan and Alex C. Snoeren and Nick Feamster and Wenke Lee},
+title = {Take This Personally: Pollution Attacks on Personalized Services},
+booktitle = {Presented as part of the 22nd USENIX Security Symposium (USENIX Security 13)},
+year = {2013},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+@inproceedings{wang13-security-drm,
+author = {Ruoyu Wang and Yan Shoshitaishvili and Christopher Kruegel and Giovanni Vigna},
+title = {Steal This Movie: Automatically Bypassing DRM Protection in Streaming Media Services},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+% best paper award
+@inproceedings {zhang13-security-control,
+author = {Mingwei Zhang and R. Sekar},
+title = {Control Flow Integrity for COTS Binaries},
+booktitle = {Presented as part of the 22nd USENIX Security Symposium (USENIX Security 13)},
+year = {2013},
+booktitle = {USENIX Security},
+year = {2013},
+location = {Washington, D.C.},
+}
+
+
+%============S&P'14  ============
+@inproceedings{kremer14-sp-automated,
+  author = {Steve Kremer and Robert Künnemann},
+  title = {{Automated Analysis of Security Protocols with Global State}},
+  booktitle = {IEEE S\&P},
+  location = {San Jose, CA},
+  month = {May},
+  year = 2014,
+  pcynote={a variant of pi calculus},
+ }
+
+@inproceedings{mare14-sp-zebra,
+  author = {Shrirang Mare and Andres Molina-Markham and Cory Cornelius and Ronald Peterson and David Kotz},
+  title = {{ZEBRA: Zero-Effort Bilateral Recurring Authentication}},
+  booktitle = {IEEE S\&P},
+  location = {San Jose, CA},
+  month = {May},
+  year = 2014,
+}
+
+@inproceedings{yamaguchi14-sp-codegraph,
+  author = {Fabian Yamaguchi and Nico Golde  and Daniel Arp and Konrad Rieck},
+  title = {{Modeling and Discovering Vulnerabilities with Code Property Graphs}},
+  booktitle = {IEEE S\&P},
+  location = {San Jose, CA},
+  month = {May},
+  year = 2014,
+}
+
+@inproceedings{lee14-sp-morula,
+  author = {Byoungyoung Lee, Long Lu, Tielei Wang, Taesoo Kim, and Wenke Lee},
+  title = {{From Zygote to Morula: Fortifying Weakened ASLR on Android}},
+  booktitle = {IEEE S\&P},
+  location = {San Jose, CA},
+  month = {May},
+  year = 2014,
+}
+
+
+@inproceedings{zhou14-sp-fragmentation, 
+  author = {Xiaoyong Zhou and Yeonjoon Lee and Nan Zhang and Muhammad Naveed  and Xiaofeng Wang},
+  title = {{The Peril of Fragmentation: Security Hazards in Android Device Driver Customizations}},
+  booktitle = {IEEE S\&P},
+  location = {San Jose, CA},
+  month = {May},
+  year = 2014,
+}
+
+@inproceedings{xing14-sp-upgrade,
+  author = { Luyi Xing and Xiaorui Pan and Rui Wang and Kan Yuan and XiaoFeng Wang},
+  title = {{Upgrading Your Android, Elevating My Malware: Privilege Escalation Through Mobile OS Updating}},
+  booktitle = {IEEE S\&P},
+  location = {San Jose, CA},
+  month = {May},
+  year = 2014,
+}
+
+@inproceedings{brubaker14-sp-frankencert,
+  author = {Chad Brubaker and Suman Jana and Baishakhi Ray and Sarfraz Khurshid and Vitaly Shmatikov},
+  title = {{Using Frankencerts for Automated Adversarial Testing of Certificate Validation in SSL/TLS Implementations}},
+  booktitle = {IEEE S\&P},
+  location = {San Jose, CA},
+  month = {May},
+  year = 2014,
+}
+@inproceedings{bond14-sp-chipandskim,
+  author = {Mike Bond and Omar Choudary and Steven J. Murdoch and Sergei Skorobogatov and Ross Anderson},
+  title = {{Chip and Skim: Cloning EMV Cards with the Pre-Play Attack}},
+  booktitle = {IEEE S\&P},
+  location = {San Jose, CA},
+  month = {May},
+  year = 2014,
+}
+
+% ======= WiSec'14 ==========
+@inproceedings{han14-wisec-mvsec,
+ author = {Han, Jun and Lin, Yue-Hsun and Perrig, Adrian and Bai, Fan},
+ title = {Short Paper: MVSec: Secure and Easy-to-use Pairing of Mobile Devices with Vehicles},
+ booktitle = {WiSec},
+ year = {2014},
+ location = {Oxford, United Kingdom},
+ keywords = {secure key agreement, smartphone security, vehicle security},
+ pcynote ={light, sound, OOB, device pairing, secrecy, authenticity},
+}
+
+%================ Cellular Infastruture =============
+@inproceedings{arapinis14-ndss,
+title = {Privacy through Pseudonymity in Mobile Telephony Systems},
+author ={Myrto Arapinis and Loretta Ilaria Mancini and Eike Ritter and Mark Ryan},
+booktitle = {IEEE NDSS},
+year = {2014}, 
+}
+
+%park08,
+@inproceedings{park08-ims,
+ author = {Frank S. Park and Devdutt Patnaik and Chaitrali Amrutkar and Michael T. Hunter},
+ title = {{A Security Evaluation of IMS Deployments}},
+ booktitle = {IEEE IMSAA},
+ year = {2008}
+}
+
+%vrakas13
+@article{vrakas13-ims,
+  title = {{An intrusion detection and prevention system for IMS and VoIP services}},
+  author = {Nikos Vrakas and Costas Lambrinoudakis.},
+  year = {2013},
+  journal = {International Journal of Information Security},
+  volume = {12},
+  pages = {201-217},
+}
+
+%keromytis10
+@article{keromytis10-voip,
+author ={Angelos D. Keromytis},
+title = {A Look at VoIP Vulnerabilities},
+booktitle ={Login},
+month= {Feb},
+year = {2010},
+vol = {35},
+number = {1},
+pages = {41--50},
+}
+
+@inproceedings{arapinis14-ndss,
+title = {Privacy through Pseudonymity in Mobile Telephony Systems},
+author ={Myrto Arapinis, Loretta Ilaria Mancini, Eike Ritter,Mark Ryan},
+booktitle = {IEEE NDSS},
+year = {2014}, 
+}
+
+
+%arapinis12
+@inproceedings{arapinis12-ccs,
+ author = {Arapinis, Myrto and Mancini, Loretta and Ritter, Eike and Ryan, Mark and Golde, Nico and Redon, Kevin and Borgaonkar, Ravishankar},
+ title = {{New Privacy Issues in Mobile Telephony: Fix and Verification}},
+ booktitle = {ACM CCS},
+ year = {2012},
+ location = {Raleigh, North Carolina, USA},
+ keywords = {anonymity, mobile telephony, proverif, unlinkability},
+} 
+
+@inproceedings{rasmussen14-ndss,
+title = {Authentication Using Pulse-Response Biometrics},
+author ={Kasper B. Rasmussen and Marc Roeschlin and Ivan Martinovic and Gene Tsudik},
+booktitle = {IEEE NDSS},
+year = {2014}, 
+}
+
+% Karsten Nohl 
+% Rooting SIM cards
+% https://srlabs.de/rooting-sim-cards/
+% News on SIM card hacking
+@misc{sim-hack,
+	title ={Millions Of Cell Phones Could Be Vulnerable To This SIM Card Hack},
+	note = {{http://gizmodo.com/sim-cards-are-hackable-and-researchers-have-found-the-v-860779912,2013}},
+}
+
+%qian2012off
+inproceedings{qian12-tcp,
+  title={{Off-Path TCP Sequence Number Inference Attack-How Firewall Middleboxes Reduce Security}},
+  author={Qian, Zhiyun and Mao, Z. Morley},
+  booktitle={IEEE S\&P},
+  year={2012},
+}
+
+%qian12-cts
+@inproceedings{qian12-ccs, 
+ author = {Qian, Zhiyun and Mao, Z. Morley and Xie, Yinglian},
+ title = {{Collaborative TCP Sequence Number Inference Attack: How to Crack Sequence Number under a Second}},
+ booktitle = {ACM CCS},
+ year = {2012},
+ location = {Raleigh, North Carolina, USA},
+ keywords = {network packet counters, tcp hijacking, tcp sequence number},
+}
+
+%go2013towards,TCPaccounting
+@inproceedings{go13-tcpaccounting,
+  title={{Towards Accurate Accounting of Cellular Data for TCP Retransmission}},
+  author={Go, Younghwan and Kune, Denis Foo and Woo, Shinae and Park, KyoungSoo and Kim, Yongdae},
+  booktitle={HotMobile},
+  year={2013}
+}
+
+%  year={2014},
+@inproceedings{go14-ndss,
+  title={{Gaining Control of Cellular Traffic Accounting by Spurious TCP Retransmission}},
+  author={Younghwan Go and Jongil Won and Denis Foo Kune and EunYoung Jeong and Yongdae Kim and KyoungSoo Park},
+  booktitle = {IEEE NDSS},
+  year = {2014},
+}
+
+@inproceedings{yu12-as-attack,
+  title={{Non-access-stratum request attack in E-UTRAN}},
+  author={Da Yu and Wushao Wen},
+  booktitle={IEEE Computing, Communications and Applications Conference (ComComAp)},
+  year = {2012},
+  abstract={Long Term Evolution (LTE) is the evolution of Universal Mobile Telecommunications System (UMTS). LTE revises and improves system architecture from UMTS to provide services that are more efficient. Evolved-UTRAN (E-UTRAN) is the air interface of 3GPP and it is on the upgrade path for LTE mobile networks. E-UTRAN specifies better security architecture to protect users' information. However, E-UTRAN is still not perfect. This article studies vulnerabilities of non-access-stratum (NAS) of E-UTRAN. We present illustrative attacks to exploit such vulnerabilities and demonstrate the effectiveness and the impact of such attacks on normal users by using our self-developed simulation tool.},
+}
+
+
+%racic06,
+%    year = {2006},
+% pages = {1--10},
+@inproceedings{racic06-mms,
+    author = {Radmilo Racic and Denys Ma and Hao Chen},
+    title = {{Exploiting MMS vulnerabilities to stealthily exhaust mobile phone's battery}},
+    booktitle = {SecureComm},
+    year = {2006},
+}
+
+@inproceedings{cooper13-hotnet,
+ author = {Cooper, Danny and Heilman, Ethan and Brogle, Kyle and Reyzin, Leonid and Goldberg, Sharon},
+ title = {On the Risk of Misbehaving RPKI Authorities},
+ booktitle =  {HotNets-XII},
+ year = {2013},
+ }  
+%hotRPKI_full,
+@misc{cooper13-tr-hotRPKI,
+ author = {Cooper, Danny and Heilman, Ethan and Brogle, Kyle and Reyzin, Leonid and Goldberg, Sharon},
+ title = {On the Risk of Misbehaving RPKI Authorities},
+ note = {Technical Report},
+ year = {2013},
+ } 
+ 
+ @article{sankaran09,
+ author = {Sankaran, C. B.},
+ title = {Network Access Security in Next-generation 3GPP Systems: A Tutorial},
+ journal = {Comm. Mag.},
+ issue_date = {February 2009},
+ volume = {47},
+ number = {2},
+ month = feb,
+ year = {2009},
+ issn = {0163-6804},
+ pages = {84--91},
+} 
+
+%{kotapati05
+@inproceedings{kotapati05-taxonomy,
+ author = {Kotapati, Kameswari and Liu, Peng and Sun, Yan and LaPorta, Thomas F.},
+ title = {A taxonomy of cyber attacks on 3g networks},
+ booktitle = {Proceedings of the 2005 IEEE international conference on Intelligence and Security Informatics},
+ series = {ISI'05},
+ year = {2005},
+ isbn = {3-540-25999-6, 978-3-540-25999-2},
+ location = {Atlanta, GA},
+ pages = {631--633},
+ publisher = {Springer-Verlag},
+ address = {Berlin, Heidelberg},
+}
+
+%caballero11
+@inproceedings{caballero11-payperinstall,
+  author    = {Juan Caballero and
+               Chris Grier and
+               Christian Kreibich and
+               Vern Paxson},
+  title     = {Measuring Pay-per-Install: The Commoditization of Malware Distribution},
+  booktitle = {USENIX Security Symposium},
+  year      = {2011},
+ }
+
+%ricciato06-conf, icciato2006impact-conf	
+@inproceedings{ricciato06-unwanted-secperu,
+ author = {Ricciato, Fabio and Svoboda, Philipp and Hasenleithner, Eduard and etc},
+ title = {{On the Impact of Unwanted Traffic onto a 3G Network}},
+ booktitle = {SecPerU},
+ year = {2006},
+ numpages = {8},
+}
+% pages = {49--56},	
+
+%ricciato2006impact,
+@article{ricciato06-unwanted,
+author = {Ricciato, Fabio},
+ title = {{Unwanted Traffic in 3G Networks}},
+ journal = {SIGCOMM Comput. Commun. Rev.},
+ issue_date = {April 2006},
+ volume = {36},
+ number = {2},
+ month = apr,
+ year = {2006},
+ pages = {53--56},
+ numpages = {4},
+ keywords = {3G, cellular networks, unwanted traffic},
+} 	
+
+%ricciato10
+@article{ricciato10-dos,
+ author = {Ricciato, Fabio and Coluccia, Angelo and D'Alconzo, Alessandro},
+ title = {Review: A review of DoS attack models for 3G cellular networks from a system-design perspective},
+ journal = {Comput. Commun.},
+ issue_date = {March, 2010},
+ volume = {33},
+ number = {5},
+ month = mar,
+ year = {2010},
+ issn = {0140-3664},
+ pages = {551--558},
+  keywords = {3G, Cellular networks, DoS, Network robustness, Signaling attacks},
+}
+
+%enck05,
+@inproceedings{enck05-sms,
+ author = {Enck, William and Traynor, Patrick and McDaniel, Patrick and La Porta, Thomas},
+ title = {{Exploiting Open Functionality in SMS-Capable Cellular Networks}},
+ booktitle = {CCS},
+ year = {2005},
+ location = {Alexandria, VA, USA},
+ keywords = {denial-of-service, open-functionality, sms, telecommunications},
+}
+%traynor-jsc08,
+@article{traynor08-jsc-sms,
+  author = {Patrick Traynor and William Enck and Patrick McDaniel and Thomas La Porta},
+  journal = {Journal of Computer Security},
+  pages = {713-742},
+  title = {Exploiting Open Functionality in SMS-Capable Cellular Networks},
+  volume = 16,
+  year = 2008
+}
+
+%traynor2007attack, traynor07
+@inproceedings{traynor07-dos,
+  title={{On Attack Causality in Internet-Connected Cellular Networks}},
+  author={Traynor, Patrick and McDaniel, Patrick and La Porta, Thomas},
+  booktitle={USENIX Security},
+  year={2007},
+}
+
+
+%traynor2006mitigating, traynor06,
+@inproceedings{traynor06-sms,
+  title={{Mitigating Attacks on Open Functionality in SMS-capable Cellular Networks}},
+  author={Traynor, Patrick and Enck, William and McDaniel, Patrick and La Porta, Thomas},
+  booktitle={MobiCom},
+  year={2006},
+}
+
+%traynor-ton09,traynor-ccs09
+@article{traynor09-ton,
+  author = {Patrick Traynor and William Enck and Patrick McDaniel and Thomas La Porta},
+  journal = {IEEE/ACM Transactions On Networking},
+  pages = {40-53},
+  title = {Mitigating Attacks on Open Functionality in SMS-Capable Cellular Networks},
+  volume = 17,
+  year = 2009
+}
+
+%traynor2009cellular
+@inproceedings{traynor09-botnets,
+  title={On cellular botnets: measuring the impact of malicious devices on a cellular network core},
+  author={Traynor, Patrick and Lin, Michael and Ongtang, Machigar and Rao, Vikhyath and Jaeger, Trent and McDaniel, Patrick and La Porta, Thomas},
+  booktitle={ACM CCS},
+  pages={223--234},
+  year={2009},
+}
+
+%barrera10, inproceedings{barrera2010methodology,
+%  author={Barrera, David and Kayacik, H G{\"u}ne{\c{s}} and etc},
+% %pages={73--84},  
+@inproceedings{barrera10-android,
+  title={{A Methodology for Empirical Analysis of Permission-Based Security Models and its Application to Android}},
+  author={Barrera, David and Kayacik, H G{\"u}ne{\c{s}} and etcvan Oorschot, Paul C and Somayaji, Anil},
+ booktitle={ACM CCS},
+  year={2010},
+}
+  
+ %traynor-securecomm10,
+ @inproceedings{traynor10-securecomm,
+ author = {Patrick Traynor},
+ title = {{Characterizing the Security Implications of Third-Party EAS Over Cellular Text Messaging Services}},
+ booktitle = {SecureComm},
+ year = {2010},
+}
+
+
+
+%article{keromytis2011comprehensive, 
+@article{keromytis11-voip,
+  title={{A Comprehensive Survey of Voice over IP Security Research}},
+  author={Keromytis, Angelos D},
+  journal={IEEE Communications Surveys \& Tutorials},
+  year={2011}
+}
+  
+%mittal11
+@inproceedings{mittal11-stealthy,
+ author = {Mittal, Prateek and Khurshid, Ahmed and Juen, Joshua and Caesar, Matthew and Borisov, Nikita},
+ title = {Stealthy traffic analysis of low-latency anonymous communication using throughput fingerprinting},
+ booktitle = {CCS},
+ year = {2011},
+ location = {Chicago, Illinois, USA},
+ keywords = {anonymity, attacks, throughput},
+}
+
+
+%soroush13
+%%inproceedings{Soroush:2013,  
+@inproceedings{soroush13-gps,
+Author = { Hamed Soroush and Keen Sung and Erik Learned-Miller and Brian Neil Levine and Marc Liberatore},
+Title = {{Disabling GPS is Not Enough: Cellular Location Leaks over the Internet}},
+Booktitle = {PETS},
+Year = {2013},
+Keywords = {Privacy; Cellular; Remote Inference},
+}
+
+@inproceedings{qian12-location,
+  title={You Can Run, but You Cannot Hide: Exposing Network Location for Targeted DoS Attacks in Cellular Networks},
+  author={Qian, Zhiyun and Wang, Zhaoguang and Xu, Qiang and Mao, Z. Morley and Zhang, Ming and Wang, Yi-Min},
+  booktitle = {IEEE NDSS},
+  year={2012},
+}
+
+%kune2012location, kune12, 
+@inproceedings{kune12-location,
+  title={{Location Leaks on the GSM Air Interface}},
+  author={Kune, Denis Foo and Koelndorfer, John and Hopper, Nicholas and Kim, Yongdae},
+  booktitle = {IEEE NDSS},
+  year={2012}
+}
+
+ % pages = {195--204},
+% booktitle = {ACM CCS},
+@inproceedings{moghaddam12-skype,
+ author = {Mohajeri Moghaddam, Hooman and Li, Baiyu and Derakhshani, Mohammad and Goldberg, Ian},
+ title = {{SkypeMorph: Protocol Obfuscation for Tor Bridges}},
+ booktitle = {CCS},
+ year = {2012},
+ keywords = {accounting attacks, cellular networks, mobile data services},
+}
+
+%vidas11
+ %booktitle = {Proceedings of the 5th USENIX conference on Offensive technologies},
+@inproceedings{vidas11-android,
+ author = {Vidas, Timothy and Votipka, Daniel and Christin, Nicolas},
+ title = {All your droid are belong to us: a survey of current android attacks},
+ booktitle = {USENIX WOOT},
+ year = {2011},
+ location = {San Francisco, CA},
+}
+
+
+% citi> 150+
+@article{zhang05-aka,
+ author = {Zhang, Muxiang and Fang, Yuguang},
+ title = {Security analysis and enhancements of 3GPP authentication and key agreement protocol},
+ journal = {Trans. Wireless. Comm.},
+ issue_date = {March 2005},
+ volume = {4},
+ number = {2},
+ month = mar,
+ year = {2005},
+ issn = {1536-1276},
+ pages = {734--742},
+ numpages = {9},
+ keywords = {Authentication, privacy, security, third generation (3G), wireless},
+}
+
+% pages = {65--76},
+@inproceedings{tsay12-aka,
+ author = {Tsay, Joe-Kai and Mj{\o}lsnes, Stig F.},
+ title = {A vulnerability in the UMTS and LTE authentication and key agreement protocols},
+ booktitle = {Proceedings of the 6th international conference on Mathematical Methods, Models and Architectures for Computer Network Security: computer network security},
+ series = {MMM-ACNS'12},
+ year = {2012},
+ location = {St. Petersburg, Russia},
+keywords = {LTE, UMTS, applied cryptography, authentication, mobile network security, security protocols, vulnerability assessment},
+} 
+
+ %series = {WiSe '06},
+ %location = {New York, NY},
+ %pages = {75-84},
+@inproceedings{serror06-paging,
+ author = {Serror, Jeremy and Zang, Hui and Bolot, Jean C. },
+ title = {{Impact of Paging Channel Overloads or Attacks on A Cellular Network}},
+ booktitle = {ACM WiSe},
+ year = {2006},
+}
+
+
+% ============  Mobile (Android) security ===========
+%about malware on the phone for data breach, which hurts privacy. It is about data protection.)
+@inproceedings{guha12-hotnet-insurance, 
+	 author = {Guha, Saikat and Kandula, Srikanth},
+	 title = {Act for Affordable Data Care},
+	 booktitle = {HotNets-XI},
+	location = {Redmond, Washington},
+ 	keywords = {data protection, insurance, privacy},
+} 
+
+%%incollection{fragkaki2012modeling,
+%pages={1--18},  
+@inproceedings{fragkaki12-permission,
+  title={Modeling and enhancing Android's permission system},
+  author={Fragkaki, Elli and Bauer, Lujo and Jia, Limin and Swasey, David},
+  booktitle={ESORICS},
+  year={2012},
+}
+
+%marforio2012analysis
+@inproceedings{marforio12-comm,
+  title={{Analysis of the Communication between Colluding Applications on Modern Smartphones}},
+  author={Marforio, Claudio and Ritzdorf, Hubert and Francillon, Aur{\'e}lien and Capkun, Srdjan},
+  booktitle={ACM ACSAC},
+  year={2012},
+}
+
+
+%potharaju2012plagiarizing
+@incollection{potharaju12-plagiarizing,
+  title={{Plagiarizing Smartphone Applications: Attack Strategies and Defense Techniques}},
+  author={Potharaju, Rahul and Newell, Andrew and Nita-Rotaru, Cristina and Zhang, Xiangyu},
+  booktitle={ESSoS},
+  year={2012},
+}
+  
+  
+@article{enck09-android,
+ author = {Enck, William and Ongtang, Machigar and McDaniel, Patrick},
+ title = {{Understanding Android Security}},
+ journal = {IEEE Security and Privacy},
+ issue_date = {January 2009},
+ volume = {7},
+ number = {1},
+ year = {2009},
+ pages = {50--57},
+ keywords = {Android, Android, mobile phones, Smartphones, security, Smartphones, mobile phones, security},
+} 
+
+%inproceedings{enck2009lightweight,
+ @inproceedings{enck09-certification,
+  title={On lightweight mobile phone application certification},
+  author={Enck, William and Ongtang, Machigar and McDaniel, Patrick},
+  booktitle={ACM CCS},
+  pages={235--245},
+  year={2009},
+}
+
+%inproceedings{pandita2013whyper,
+@inproceedings{pandita13-whyper,
+  title={WHYPER: towards automating risk assessment of mobile applications},
+  author={Pandita, Rahul and Xiao, Xusheng and Yang, Wei and Enck, William and Xie, Tao},
+  booktitle={USENIX Security},
+  location= {Washington DC, USA},
+  pages={14--16},
+  year={2013}
+}
+
+%booktitle = {Proceedings of the 20th USENIX conference on Security},
+ @inproceedings{enck11-android,
+ author = {William Enck and
+               Damien Octeau and
+               Patrick McDaniel and
+               Swarat Chaudhuri},
+ title = {{A study of android application security}},
+ booktitle = {USENIX Security},
+ year = {2011},
+ location = {San Francisco, CA},
+}
+
+% booktitle = {Proceedings of the 2012 IEEE Symposium on Security and Privacy},
+%pages = {128--142},
+%driessen12, driessen12-sp
+@inproceedings{driessen12-sp-satphone,
+ author = {Driessen, Benedikt and Hund, Ralf and Willems, Carsten and Paar, Christof and Holz, Thorsten},
+ title = {Don't Trust Satellite Phones: A Security Analysis of Two Satphone Standards},
+ booktitle = {IEEE S\&P},
+ year = {2012},
+ keywords = {Mobile Security, Satellite Phone Systems, Cryptanalysis, Binary Analysis},
+ pcynote={Best paper award},
+} 
+
+%schlegel2011soundcomber
+@inproceedings{schlegel11-soundcomber,
+  title={{Soundcomber: A Stealthy and Context-Aware Sound Trojan for Smartphones}},
+  author={Schlegel, Roman and Zhang, Kehuan and Zhou, Xiaoyong and Intwala, Mehool and Kapadia, Apu and Wang, X},
+  booktitle = {IEEE NDSS},
+  year= {2011},
+}
+
+%enck2009lightweight,
+@inproceedings{enck09-lightweight,
+  title={On lightweight mobile phone application certification},
+  author={Enck, William and Ongtang, Machigar and McDaniel, Patrick},
+  booktitle={ACM CCS},
+  pages={235--245},
+  year={2009},
+}
+%pandita2013whyper,
+@inproceedings{pandita13-whyper,
+  title={WHYPER: towards automating risk assessment of mobile applications},
+  author={Pandita, Rahul and Xiao, Xusheng and Yang, Wei and Enck, William and Xie, Tao},
+  booktitle={USENIX Security},
+  year={2013},
+}
+
+%  url = {http://www.markus-jakobsson.com/wp-content/uploads/SpoofKiller-Markus-Jakobsson-Hossein-Siadati.pdf}, 
+@inproceedings{jakobsson12-spoofkiller, 
+  author = {Jakobsson, M. and Siadati, H.}, 
+  booktitle = {IEEE Workshop on Socio-Technical Aspects in Security and Trust (STAST)}, 
+  pages = {3--10}, 
+  priority = {2}, 
+  title = {{SpoofKiller}: You Can Teach People How to Pay, but Not How to Pay Attention}, 
+  year = {2012}
+}
+
+%  pages = {96--111},
+%becher11
+@inproceedings{becher11-sp,
+ author = {Becher, Michael and Freiling, Felix C. and Hoffmann, Johannes and Holz, Thorsten and Uellenbeck, Sebastian and Wolf, Christopher},
+ title = {{Mobile Security Catching Up? Revealing the Nuts and Bolts of the Security of Mobile Devices}},
+ booktitle = {IEEE S\&P},
+ year = {2011},
+ numpages = {16},
+ }
+
+
+% booktitle = {Proceedings of the 17th ACM conference on Computer and communications security},
+%pages = {27--37},
+%grier10
+@inproceedings{grier10-smsspam,
+ author = {Grier, Chris and Thomas, Kurt and Paxson, Vern and Zhang, Michael},
+ title = {@spam: the underground on 140 characters or less},
+ booktitle = {ACM CCS},
+ year = {2010},
+ isbn = {978-1-4503-0245-6},
+ location = {Chicago, Illinois, USA},
+ keywords = {spam, twitter},
+}
+
+%felt1
+% pages = {3--14},
+@inproceedings{felt11-mobilemalware,
+ author = {Felt, Adrienne Porter and Finifter, Matthew and Chin, Erika and Hanna, Steve and Wagner, David},
+ title = {A survey of mobile malware in the wild},
+ booktitle = {SPSM},
+ year = {2011},
+ isbn = {978-1-4503-1000-0},
+ location = {Chicago, Illinois, USA},
+ numpages = {12},
+ keywords = {malware, mobile devices, smartphones},
+}
+
+%zhou12
+@inproceedings{zhou12-sp,
+ author = {Zhou, Yajin and Jiang, Xuxian},
+ title = {{Dissecting Android Malware: Characterization and Evolution}},
+ booktitle = {IEEE S\&P},
+ year = {2012},
+ isbn = {978-0-7695-4681-0},
+ numpages = {15},
+ keywords = {Android malware, smartphone security},
+}
+
+@inproceedings{wu13-ccs,
+ author = {Lei Wu, Michael Grace, Yajin Zhou, Chiachih Wu, Xuxian Jiang},
+ title = {The Impact of Vendor Customizations on Android Security},
+ booktitle = {ACM CCS},
+ year = {2013},
+ keywords = {Android malware, smartphone security},
+}
+
+@InProceedings{templeman13-placeraider,
+ author = {Robert Templeman and Zahid Rahman and David Crandall and Apu Kapadia},
+ title = {{PlaceRaider}: Virtual Theft in Physical Spaces with Smartphones},
+ booktitle = {IEEE NDSS},
+ year = {2013},
+ month = feb
+}
+
+%booktitle = {Proceedings of the 2012 ACM conference on Computer and communications security},
+@inproceedings{au12-pscout-ccs,
+ author = {Au, Kathy Wain Yee and Zhou, Yi Fan and Huang, Zhen and Lie, David},
+ title = {PScout: analyzing the Android permission specification},
+ booktitle = {ACM CCS},
+ year = {2012},
+ location = {Raleigh, North Carolina, USA},
+ keywords = {android, permissions, smartphone},
+} 
+
+% booktitle = {Proceedings of the 5th International Conference on Trust and Trustworthy Computing (Trust 2012)},
+@InProceedings{vasudevan12-trust,
+  author = {Amit Vasudevan and Emmanuel Owusu and Zongwei Zhou and James Newsome and Jonathan M. {McCune}},
+  title = {Trustworthy Execution on Mobile Devices: What security properties can my mobile platform give me?},
+  booktitle = {Trust},
+  month = jun,
+  year = 2012
+}
+
+%booktitle = {Proceedings of the 5th international conference on Mobile systems, applications and services},
+ %pages = {258--271},
+@inproceedings{cheng07,
+ author = {Cheng, Jerry and Wong, Starsky H.Y. and Yang, Hao and Lu, Songwu},
+ title = {SmartSiren: virus detection and alert for smartphones},
+ booktitle = {ACM MobiSys},
+ year = {2007},
+ location = {San Juan, Puerto Rico},
+ keywords = {alert, privacy, security, smartphone, virus detection},
+} 	
+
+@inproceedings{guo04,
+ author = {Chuanxiong Guo and  Helen Wang and Wenwu Zhu},
+ title = {Smartphone Attacks and Defenses  },
+ booktitle = {ACM HotNets-III},
+ year = {2004},
+}
+	
+@inproceedings{felt11-phishing,
+Author={Adrienne Porter Felt and David Wagner},
+title={Phishing on Mobile Devices},
+booktitle={Workshop on Web 2.0 Security and Privacy (W2SP)},
+year = {2011},
+}
+
+
+
+@article{leavitt05-phonehacker,
+  author = {Leavitt, Neal},
+  title ={Mobile Phones: The Next Frontier for Hackers?},
+  journal = {IEEE Computer},
+  volume = {38},
+  number = 4,
+  pages = {20-23},
+  year = {2005},
+  }
+
+@inproceedings{wallnach11-phonesecurity,
+ author = {Dan S. Wallach},
+ title = {Smartphone Security: Trends and Predictions},
+ booktitle = {Secure Application Development},
+ series = {SecAppDev},
+ year = {2011},
+}
+
+@misc{mobileme,
+title ={{MobileMe}},
+note ={{http://www.apple.com/mobileme/}},
+}
+
+@misc{dnssec,
+title = {{DNSSEC}},
+note={{http://www.dnssec.net/}},
+}
+
+
+	
+
+@article{lee09-dos,
+ author = {Lee, Patrick P. C. and Bu, Tian and Woo, Thomas},
+ title = {{On the Detection of Signaling DoS Attacks on 3G/WiMax Wireless Networks}},
+ journal = {Computer Networks},
+ volume = {53},
+ number = {15},
+ month = oct,
+ year = {2009},
+ issn = {1389-1286},
+ pages = {2601--2616},
+ numpages = {16},
+ keywords = {3G wireless, DoS attacks, Security},
+}
+
+% ============== Spamming ===========
+% pages = {171--182},
+ %year = {2008},
+@inproceedings{xie08-spam,
+ author = {Xie, Yinglian and Yu, Fang and Achan, Kannan and Panigrahy, Rina and Hulten, Geoff and Osipkov, Ivan},
+ title = {Spamming Botnets: signatures and Characteristics},
+ booktitle = {ACM SIGCOMM},
+ year = {2008},
+ location = {Seattle, WA, USA},
+ keywords = {botnet, regular expression, signature generation, spam},
+}
+
+% publisher = {Springer},
+ @inproceedings{johnson12-spam,
+  author = {Johnson, Benjamin and Chuang, John and Grossklags, Jens and Christin, Nicolas},
+  booktitle = {Financial Cryptography:Lecture Notes in Computer Science},
+  pages = {89-97},
+  title = {{Metrics for Measuring ISP Badness: The Case of Spam}},
+  volume = {7397},
+  year ={ 2012},
+}
+
+@article{balfanz12-auth,
+  author = {Balfanz, D. and Chow, R. and Eisen, O. and Jakobsson, M. and Kirsch, S. and Matsumoto, S. and Molina, J. and van Oorschot, P.}, 
+  journal = {IEEE Security \& Privacy}, 
+  keywords = {article, authentication}, 
+  number = {1}, 
+  pages = {22--27}, 
+  posted-at = {2013-02-25 03:52:53}, 
+  priority = {2}, 
+  title = {The future of authentication}, 
+  volume = {10}, 
+  year = {2012}
+}
+
+
+ % pages = {465--480},
+ % booktitle = {Proceedings of the 2011 IEEE Symposium on Security and Privacy},
+@inproceedings{wang11-free,
+ author = {Wang, Rui and Chen, Shuo and Wang, XiaoFeng and Qadeer, Shaz},
+ title = {How to Shop for Free Online -- Security Analysis of Cashier-as-a-Service Based Web Stores},
+ booktitle = {IEEE S\&P },
+ year = {2011},
+ isbn = {978-0-7695-4402-1},
+ numpages = {16},
+ url = {http://dx.doi.org/10.1109/SP.2011.26},
+ keywords = {e-Commerce security, web API, Cashier-as-a-Service, logic bug, program verification},
+}
+
+%%% IP Spoofing 
+%booktitle = {Proceedings of the 10th ACM conference on Computer and communications security},
+ @inproceedings{jin03-ccs-hopcount,
+ author = {Jin, Cheng and Wang, Haining and Shin, Kang G.},
+ title = {Hop-count filtering: an effective defense against spoofed DDoS traffic},
+ booktitle = {ACM CCS},
+ year = {2003},
+ location = {Washington D.C., USA},
+ keywords = {DDoS defense, TTL, host-based, networking, security},
+ pcynote ={Propose a hop-count-filtering tech against IP spoofing. It can be used at the victim server against flooding from spoofed IP addresses.},
+} 
+
+@article{yao10-sigcommrev-pit,
+ author = {Yao, Guang and Bi, Jun and Zhou, Zijian},
+ title = {Passive IP traceback: capturing the origin of anonymous traffic through network telescopes},
+ journal = {SIGCOMM Comput. Commun. Rev.},
+ volume = {41},
+ number = {4},
+ month = aug,
+ year = {2010},
+ keywords = {IP traceback, network telescope},
+} 
+
+@inproceedings{chakradeo13-mast,
+  author    = {Saurabh Chakradeo and
+               Bradley Reaves and
+               Patrick Traynor and
+               William Enck},
+  title     = {MAST: triage for market-scale mobile malware analysis},
+  booktitle = {WiSec},
+  year      = {2013},
+  pages     = {13-24},
+}
+
+@inproceedings{wang13-ccs,
+  author    = {Rui Wang and
+  		    Luyi Xing and
+		    XiaoFeng Wang and
+		     Shuo Chen},
+  title     = {Unauthorized Origin Crossing on Mobile Platforms: Threats and Mitigation},
+  booktitle = {CCS},
+  year      = {2013},
+  }
+
+@inproceedings{schuchard10-ccs-control,
+ author = {Schuchard, Max and Mohaisen, Abedelaziz and Foo Kune, Denis and Hopper, Nicholas and Kim, Yongdae and Vasserman, Eugene Y.},
+ title = {Losing Control of the Internet: Using the Data Plane to Attack the Control Plane},
+ booktitle = {CCS},
+ year = {2010},
+ isbn = {978-1-4503-0245-6},
+ location = {Chicago, Illinois, USA},
+ pages = {726--728},
+ keywords = {BGP, DDoS, botnet, internet},
+} 
+
+% booktitle = {Proceedings of the 9th ACM SIGCOMM conference on Internet measurement conference},
+@inproceedings{beverly09-imc,
+ author = {Beverly, Robert and Berger, Arthur and Hyun, Young and claffy, k},
+ title = {Understanding the efficacy of deployed internet source address validation filtering},
+ booktitle = {IMC},
+ year = {2009},
+ isbn = {978-1-60558-771-4},
+ location = {Chicago, Illinois, USA},
+ pages = {356--369},
+ numpages = {14},
+ keywords = {filtering, ip spoofing, source address validation},
+}
+
+
+%booktitle = {Proceedings of the 2nd ACM symposium on Information, computer and communications security},
+@inproceedings{lee07-asiaccs-base,
+ author = {Lee, Heejo and Kwon, Minjin and Hasker, Geoffrey and Perrig, Adrian},
+ title = {BASE: an incrementally deployable mechanism for viable IP spoofing prevention},
+ booktitle = {ASIACCS},
+ year = {2007},
+ location = {Singapore},
+ pages = {20--31},
+ numpages = {12},
+ keywords = {BGP anti-spoofing extension, DDoS attack, IP spoofing, packet marking and filtering},
+} 
+
+% month = apr,
+@article{bellovin89-security-tcpip,
+ author = {Bellovin, S. M.},
+ title = {{Security problems in the TCP/IP protocol suite}},
+ journal = {SIGCOMM Comput. Commun. Rev.},
+ issue_date = {April 1, 1989},
+ volume = {19},
+ number = {2},
+ year = {1989},
+ pages = {32--48},
+ numpages = {17},
+}
+
+@article{ehrenkranz09-survey-ipspoofingdefense,
+ author = {Ehrenkranz, Toby and Li, Jun},
+ title = {On the state of IP spoofing defense},
+ journal = {ACM Trans. Internet Technol.},
+ issue_date = {May 2009},
+ volume = {9},
+ number = {2},
+ month = may,
+ year = {2009},
+ issn = {1533-5399},
+ pages = {6:1--6:29},
+ articleno = {6},
+ numpages = {29},
+ keywords = {IP spoofing, packet filtering, spoofing defense, spoofing packet},
+}
+
+%booktitle = {Proceedings of the 2003 IEEE Symposium on Security and Privacy},
+@inproceedings{yaar03-pi,
+ author = {Yaar, Abraham and Perrig, Adrian and Song, Dawn},
+ title = {Pi: A Path Identification Mechanism to Defend against DDoS Attacks},
+ booktitle = {IEEE S\&P}, 
+ year = {2003},
+ isbn = {0-7695-1940-7},
+ pages = {93--},
+} 
+
+@article{devivo99-sigcommrev-tcpip-vul,
+ author = {de Vivo, Marco and de Vivo, Gabriela O. and Koeneke, Roberto and Isern, Germinal},
+ title = {Internet vulnerabilities related to TCP/IP and T/TCP},
+ journal = {SIGCOMM Comput. Commun. Rev.},
+ issue_date = {January 1999},
+ volume = {29},
+ number = {1},
+ month = jan,
+ year = {1999},
+ issn = {0146-4833},
+ pages = {81--85},
+ numpages = {5},
+ keywords = {Denial of Service, SYN Attack, Sniffing, Spoofing, T/TCP, TCP/IP},
+} 
+
+@article{moore06-tocs,
+ author = {Moore, David and Shannon, Colleen and Brown, Douglas J. and Voelker, Geoffrey M. and Savage, Stefan},
+ title = {{Inferring Internet Denial-of-Service Activity}},
+ journal = {ACM Trans. Comput. Syst.},
+ issue_date = {May 2006},
+ volume = {24},
+ number = {2},
+ month = may,
+ year = {2006},
+ issn = {0734-2071},
+ pages = {115--139},
+ numpages = {25},
+ keywords = {Backscatter, denial-of-service, network measurement, network security},
+ pcynote={Report ICMP messages are observed in case of IP spoofing},
+}
+%moore01
+%Proceedings of the 10th conference on USENIX Security Symposium - Volume 10
+@inproceedings{moore01-dos-internet,
+ author = {Moore, David and Voelker, Geoffrey M. and Savage, Stefan},
+ title = {Inferring internet denial-of-service activity},
+ booktitle = {Proceedings of the 10th conference on USENIX Security Symposium - Volume 10},
+ series = {SSYM'01},
+ year = {2001},
+ location = {Washington, D.C.},
+ pages = {2--2},
+ numpages = {1},
+ acmid = {1267614},
+ publisher = {USENIX Association},
+ address = {Berkeley, CA, USA},
+}
+
+
+%%END OF IPSpoofing
+
+
+
+
+
+
+
+%%%
+%%% === Virus and Virus spread ===
+%Moscibroda06:PODC:Inoculation,
+% PODC'06: Proceedings of the twenty-fifth annual ACM symposium on Principles of distributed computing},
+@inproceedings{moscibroda06-podc-Inoculation,
+ author = {Thomas Moscibroda and Stefan Schmid and Roger Wattenhofer},
+ title = {When selfish meets evil: byzantine players in a virus inoculation game},
+ booktitle = {PODC},
+ year = {2006},
+ isbn = {1-59593-384-0},
+ pages = {35--44},
+ location = {Denver, Colorado, USA},
+ }
+ 
+%Berger05:soda:internetvirus
+@inproceedings{berger05-soda-internetvirus,
+ author = {Noam Berger and Christian Borgs and Jennifer T. Chayes and Amin Saberi},
+ title = {On the spread of viruses on the internet},
+ booktitle = {SODA},
+ year = {2005},
+ mytype    = {Security:Model:theory},
+ myRank     ={},
+ PCYNote = {It pointed out that a typical vertex develops into an epidemic with prob $\lamda^{O(log(1/\lamda)/loglog(1/\lamda))}$, but on average epidemic prob is $\lamda^{O(1)}$; any virus with a positive rate of spread from a node to its neighbor has non-vanishing chance of becoming epidemic. Obviously, it is theoretical work. They assume that all nodes are homogeneous and consistent against virus. However in fact, we can see that for an internet virus/worm, firstly most nodes are vulnerable, and virus spread rapidly; but later, nodes are getting stronger, even stronger than virus itself. You know, the fact is fewer attacker, more guards; but attack is more dangerous and powerful},
+ }
+
+%Aspnes05:soda:Inoculation
+ @inproceedings{aspnes05-soda-inoculation,
+ author = {James Aspnes and Kevin Chang and Aleksandr Yampolskiy},
+ title = {Inoculation strategies for victims of viruses and the sum-of-squares partition problem},
+ booktitle = {SODA},
+ year = {2005},
+ location = {Vancouver, British Columbia},
+ PCYNote = {modeling of virus spread in a graph of n nodes using game theory; prove many game theoretical properties like Nash equilibria, prove sum-of-square partition problem is approximate to the original one which is NP-hard.},
+ mytype    = {Security:Model:theory},
+ }
+
+%Moor02:CodeRed
+ @inproceedings{moor02-codered,
+ author = {David Moore and Colleen Shannon and k claffy},
+ title = {Code-Red: a case study on the spread and victims of an internet worm},
+ booktitle = {IMW '02: Proceedings of the 2nd ACM SIGCOMM Workshop on Internet measurment},
+ year = {2002},
+  location = {Marseille, France},
+ }
+
+ @inproceedings{chess98-secuirty-mobile-code,
+ author = {David M. Chess},
+ title = {Security Issues in Mobile Code Systems},
+ booktitle = {Mobile Agents and Security},
+ year = {1998},
+ publisher = {Springer-Verlag},
+ address = {London, UK},
+ }
+
+@article{Kurzban89-virus-worm,
+ author = {S. Kurzban},
+ title = {Viruses and worms - What can they do?},
+ journal = {SIGSAC Rev.},
+ volume = {7},
+ number = {1},
+ year = {1989},
+ issn = {0277-920X},
+ pages = {16--32},
+ PCYNote ={},
+ mytype    = {},
+ myRank     ={},
+ }
+
+% =========== In general ==========
+% security 
+% citi> 850
+@article{Evans74-auth,
+ author = {Arthur Evans, Jr. and Edwin Weiss},
+ title = {A user authentication scheme not requiring secrecy in the computer},
+ journal = {Commun. ACM},
+ volume = {17},
+ number = {8},
+ year = {1974},
+ issn = {0001-0782},
+ pages = {437--442},
+ PCYNote ={},
+ mytype    = {security:auth},
+ myRank     ={},
+ }
+ 
+ %anderson02
+@techreport{anderson02-open-close,
+    address = {England},
+    author = {Anderson, R. J.},
+    institution = {Cambridge University},
+    keywords = {security-papers},
+    priority = {0},
+    title = {{Security in open versus closed systems --- the dance of Boltzmann, Coase and Moore}},
+    type = {Technical Report},
+    year = {2002},
+    pcynote={a classic paper on arguing the security and openness; Topic: model of software reliability ; Problem: interaction btw security and openness
+(in area of software engineering (source code)); conclusion:1) In a perfect world, and for systems largeand complex enough for statistical methods to apply, the attack and the defence are helped equally. Whether systems are open or closed makes no difference in the long run. 2) But in reality, it may depends on the circumstance in which this symmetry can be broken. },
+}
+
+
+@book{cheswick03-firewall,
+ author = {Cheswick, William R. and Bellovin, Steven M. and Rubin, Aviel D.},
+ title = {Firewalls and Internet Security: Repelling the Wily Hacker},
+ year = {2003},
+ isbn = {020163466X},
+ edition = {2},
+ publisher = {Addison-Wesley Longman Publishing Co., Inc.},
+ address = {Boston, MA, USA},
+}
+
+%Proceedings of the 2011 IEEE Symposium on Security and Privacy},
+@inproceedings{zhang11-sp-scion,
+ author = {Zhang, Xin and Hsiao, Hsu-Chun and Hasker, Geoffrey and Chan, Haowen and Perrig, Adrian and Andersen, David G.},
+ title = {SCION: Scalability, Control, and Isolation on Next-Generation Networks},
+ booktitle = {SP},
+ year = {2011},
+ pages = {212--227},
+ numpages = {16},
+}
+
+%
+@misc{bellovin05-nsf-geni,
+title ={A Clean-Slate Design for the Next-Generation Secure Internet},
+note={Editors: Steven M. Bellovin and  David D. Clark and Adrian Perrig and Dawn Song},
+url={http://groups.geni.net/geni/raw-attachment/wiki/OldGPGDesignDocuments/GDD-05-05.pdf},
+year = {2005},
+}
+%http://groups.geni.net/geni/raw-attachment/wiki/OldGPGDesignDocuments/GDD-05-05.pdf
+
+
+
+
+% citi = 86
+@article{balfanz04-usable-security,
+  author = {Balfanz, Dirk and Durfee, Glenn and Grinter, Rebecca E. and Smetters, Diana K.},
+  journal = {IEEE Security \& Privacy},
+  keywords = {dblp},
+  number = 5,
+  pages = {19-24},
+  title = {In Search of Usable Security: Five Lessons from the Field.},
+  volume = 2,
+  year = 2004,
+}
+
+@article{adams99-user,
+ author = {Adams, Anne and Sasse, Martina Angela},
+ title = {Users are not the enemy},
+ journal = {Commun. ACM},
+ issue_date = {Dec. 1999},
+ volume = {42},
+ number = {12},
+ month = dec,
+ year = {1999},
+ issn = {0001-0782},
+ pages = {40--46},
+ numpages = {7},
+} 
+
