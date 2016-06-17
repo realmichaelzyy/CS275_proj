@@ -16,7 +16,7 @@ using namespace std;
 int main() {
 	srand (time(NULL));
 	int niters = 1;
-	Environment base_environment(20, 0, 0.5);
+	Environment base_environment(20, 0, 1);
 	// base_environment.display();
 	base_environment.run(100);
 	base_environment.CloseFile();
