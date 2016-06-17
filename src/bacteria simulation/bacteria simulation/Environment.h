@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <vector>
 #include <random>
+#include <fstream>
 #include "Bacterium.h"
 
 const int NEIGHBOUR_SIZE = 10;
@@ -12,7 +13,7 @@ class Environment
 {
 public:
 	std::vector<Bacterium> bacteria;
-	
+	std::ofstream fout;
 	Environment();
 	~Environment();
 	Environment(int size);

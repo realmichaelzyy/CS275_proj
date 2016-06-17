@@ -18,8 +18,6 @@ public:
 	void updateDirection(std::vector<Bacterium>& bacteria);
 	bool touch(const Bacterium& b);
 	double dist(const Bacterium& b);
-
-private:
 	void log(std::vector<Bacterium>& bacteria);
 };
 
