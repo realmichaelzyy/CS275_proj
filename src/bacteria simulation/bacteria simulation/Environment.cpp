@@ -47,6 +47,8 @@ void Environment::display() {
 
 void Environment::run(int tickNumber) {
 	vector<Bacterium> winner;
+	double sum1 = 0, sum2 = 0;
+	int cnt1 = 0, cnt2 = 0;
 
 	for (int tick = 0; tick < tickNumber; ++tick) {
 		
@@ -114,6 +116,13 @@ void Environment::run(int tickNumber) {
 					--k;
 				}
 				if (winner.size() > tickNumber / 10) winner.pop_back();
+				if (bacteria[i].id > 0) {
+					sum1 += bacteria[i].age;
+					++cnt1;
+				} else {
+					sum2 += bacteria[i].age;
+					++cnt2;
+				}
 			}
 		}
 
@@ -128,10 +137,27 @@ void Environment::run(int tickNumber) {
 					//cout << b.positionX << " " << b.positionY << " " << b.radius << endl;
 					//cout << t.positionX << " " << t.positionY << " " << t.radius << endl;
 					Bacterium newB = b.radius > t.radius ? b : t;
+					Bacterium prey = b.radius > t.radius ? t : b;
 					newB.radius = sqrt(b.radius * b.radius + t.radius * t.radius);
 					newB.energy = b.radius > t.radius ? b.energy + t.radius * t.radius : t.energy + b.radius * b.radius;
 					b = newB;
 					visited[j] = true;
+
+					winner.push_back(prey);
+					int k = bacteria.size() - 1;
+					while (k > 0 && bacteria[k].age > bacteria[k - 1].age) {
+						swap(bacteria[k], bacteria[k - 1]);
+						--k;
+					}
+					if (winner.size() > tickNumber / 10) winner.pop_back();
+					if (prey.id > 0) {
+						sum1 += prey.age;
+						++cnt1;
+					}
+					else {
+						sum2 += prey.age;
+						++cnt2;
+					}
 					//system("pause");
 				}
 			}
@@ -140,6 +166,8 @@ void Environment::run(int tickNumber) {
 		bacteria = newBacteria;
 		// display();
 		//cout << "~~~~~~~" << endl;
+		cout << "!!" << cnt1 << " " << sum1 << " " << sum1 / cnt1 << endl;
+		cout << "!!" << cnt2 << " " << sum2 << " " << sum2 / cnt2 << endl;
 		//system("pause");
 	}
 	
