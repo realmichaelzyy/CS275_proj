@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
-
+#include <map>
 class Bacterium
 {
 public:
@@ -10,15 +10,15 @@ public:
 	double energy;
 	double theta;
 	int age;
-	std::vector<std::string> history;
+	int id;
 
 	double getSpeed();
 	void move();
-	void initialize();
+	void initialize(int id);
 	void updateDirection(std::vector<Bacterium>& bacteria);
 	bool touch(const Bacterium& b);
 	double dist(const Bacterium& b);
-	void log(std::vector<Bacterium>& bacteria);
+	std::string getRecord(std::vector<Bacterium>& bacteria);
 };
 
 class NaiveBacterium : Bacterium 

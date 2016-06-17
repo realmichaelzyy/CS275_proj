@@ -9,10 +9,11 @@ Environment::Environment()
 
 Environment::Environment(int size) {
 	fout.open("test.txt", std::fstream::out);
+	log.open("log.txt", std::fstream::out);
 	bacteria.clear();
 	for (int k = 0; k < size; ++k) {
 		Bacterium bacterium;
-		bacterium.initialize();
+		bacterium.initialize(count++);
 		bacteria.push_back(bacterium);
 	}
 }
@@ -20,6 +21,7 @@ Environment::Environment(int size) {
 Environment::~Environment()
 {
 	fout.close();
+	log.close();
 }
 
 void Environment::display() {
@@ -37,7 +39,7 @@ void Environment::run(int tickNumber) {
 		// Add bacteria when not enough
 		while (bacteria.size() <= NEIGHBOUR_SIZE) {
 			Bacterium b;
-			b.initialize();
+			b.initialize(count++);
 			bacteria.push_back(b);
 		}
 
@@ -49,7 +51,7 @@ void Environment::run(int tickNumber) {
 			visited[i] = true;
 
 			for (int k = 0; k < NEIGHBOUR_SIZE; ++k) {
-				double min_dis = 2;
+				double min_dis = 1000;
 				int choice = -1;
 				for (int j = 0; j < bacteria.size(); ++j) {
 					if (visited[j]) continue;
@@ -65,10 +67,16 @@ void Environment::run(int tickNumber) {
 			b.updateDirection(neighbours);
 		}
 
-
+		// Log
+		log << bacteria.size() << endl;
 		for (int i = 0; i < bacteria.size(); ++i) {
 			Bacterium& b = bacteria[i];
-			b.log(bacteria);
+			log << b.id << " " << b.positionX << " " << b.positionY << " " << b.radius << " " << b.energy/b.radius/b.radius << " " << b.age << endl;
+		}
+		//
+		for (int i = 0; i < bacteria.size(); ++i) {
+			Bacterium& b = bacteria[i];
+			history[b.id].push_back(b.getRecord(bacteria));
 			b.move();
 		}
 
@@ -96,32 +104,39 @@ void Environment::run(int tickNumber) {
 			if (visited[i]) continue;
 			Bacterium b = bacteria[i];
 
-			for (int j = i + 1; j < bacteria.size(); ++j) {
-				if (visited[j]) continue;
+			for (int j = 0; j < bacteria.size(); ++j) {
+				if (i == j || visited[j]) continue;
 				Bacterium& t = bacteria[j];
 				if (b.touch(t)) {
+					//cout << b.positionX << " " << b.positionY << " " << b.radius << endl;
+					//cout << t.positionX << " " << t.positionY << " " << t.radius << endl;
 					Bacterium newB = b.radius > t.radius ? b : t;
 					newB.radius = sqrt(b.radius * b.radius + t.radius * t.radius);
+					newB.energy = b.radius > t.radius ? b.energy + t.radius * t.radius : t.energy + b.radius * b.radius;
 					b = newB;
 					visited[j] = true;
+					//system("pause");
 				}
 			}
 			newBacteria.push_back(b);
 		}
 		bacteria = newBacteria;
 		display();
+		//cout << "~~~~~~~" << endl;
+		//system("pause");
 	}
 	
 	int sampleCount = 0;
 	for (int i = 0; i < winner.size(); ++i) {
-		Bacterium b = winner[i];
-		sampleCount += winner[i].history.size();
+		Bacterium& b = winner[i];
+		sampleCount += history[winner[i].id].size();
 	}
 	fout << sampleCount << " " << 31 << " " << 1 << endl;
 	for (int i = 0; i < winner.size(); ++i) {
-		Bacterium b = winner[i];
-		for (int i = 0; i < b.history.size(); ++i) {
-			fout << b.history[i];
+		Bacterium& b = winner[i];
+		vector<string>& his = history[winner[i].id];
+		for (int i = 0; i < his.size(); ++i) {
+			fout << his[i];
 		}
 	}
 	fout.flush();

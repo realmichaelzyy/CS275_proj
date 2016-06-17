@@ -14,6 +14,6 @@ using namespace std;
 int main() {
 	Environment environment(20);
 	environment.display();
-	environment.run(100);
+	environment.run(500);
 	system("pause");
 }
