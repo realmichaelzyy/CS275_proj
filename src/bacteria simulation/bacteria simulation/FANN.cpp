@@ -40,13 +40,13 @@ fann_type* FANN_Test(string netfile, fann_type* input)
 
 
 
-int main()
-{
-    FANN_Train("training.in", "training.net");
-    fann_type* input = new fann_type[2];
-    input[0] = -1;
-    input[1] = 1;
-    fann_type *result = FANN_Test("training.net", input);
-    printf("xor test (%f,%f) -> %f\n", input[0], input[1], result[0]);
-    return 0;
-}
+// int main()
+// {
+//     FANN_Train("training.in", "training.net");
+//     fann_type* input = new fann_type[2];
+//     input[0] = -1;
+//     input[1] = 1;
+//     fann_type *result = FANN_Test("training.net", input);
+//     printf("xor test (%f,%f) -> %f\n", input[0], input[1], result[0]);
+//     return 0;
+// }

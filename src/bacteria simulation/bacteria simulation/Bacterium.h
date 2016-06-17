@@ -30,5 +30,6 @@ public:
 class SmartBacterium : Bacterium
 {
 public:
+	std::string netfile;
 	void updateDirection(std::vector<Bacterium>& bacteria);
-}
+};
