@@ -5,7 +5,7 @@
 #include <sstream>
 #include <climits>
 
-#include "FANN.h"
+//#include "FANN.h"
 
 using namespace std;
 
@@ -33,10 +33,11 @@ void Bacterium::move() {
 	double speed = getSpeed();
 	double directionX = speed * cos(theta);
 	double directionY = speed * sin(theta);
+	if (positionX + directionX > 1 || positionX + directionX < 0) directionX = -directionX;
+	if (positionY + directionY > 1 || positionY + directionY < 0) directionY = -directionY;
 	positionX += directionX;
 	positionY += directionY;
-	if (positionX > 1 || positionX < 0) directionX = -directionX;
-	if (positionY > 1 || positionY < 0) directionY = -directionY;
+
 	energy -= radius * radius * 0.01 * radius / BASE_SIZE;
 	++age;
 }
@@ -82,7 +83,7 @@ void NaiveBacterium::updateDirection(vector<Bacterium>& bacteria) {
 }
 
 void SmartBacterium::updateDirection(vector<Bacterium>& bacteria) {
-	fann_type* input = new fann_type(NEIGHBOUR_SIZE * 3 + 1);
+/*	fann_type* input = new fann_type(NEIGHBOUR_SIZE * 3 + 1);
 	input[0] = radius;
 	for (int i = 0; i < bacteria.size(); i++)
 	{
@@ -91,5 +92,5 @@ void SmartBacterium::updateDirection(vector<Bacterium>& bacteria) {
 		input[3 * i + 3] = bacteria[i].radius;
 	}
 	fann_type *result = FANN_Test(netfile, input);
-	theta = result[0];
+	theta = result[0];*/
 }

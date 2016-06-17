@@ -64,19 +64,22 @@ void Environment::run(int tickNumber) {
 				neighbours.push_back(bacteria[choice]);
 				visited[choice] = true;
 			}
+			
 			b.updateDirection(neighbours);
+			history[b.id].push_back(b.getRecord(neighbours));
 		}
 
 		// Log
-		log << bacteria.size() << endl;
+		//log << bacteria.size() << endl;
 		for (int i = 0; i < bacteria.size(); ++i) {
 			Bacterium& b = bacteria[i];
-			log << b.id << " " << b.positionX << " " << b.positionY << " " << b.radius << " " << b.energy/b.radius/b.radius << " " << b.age << endl;
+			//log << b.id << " " << b.positionX << " " << b.positionY << " " << b.radius << " " << b.energy/b.radius/b.radius << " " << b.age << endl;
+			log << b.id << " " << b.positionX << " " << b.positionY << " " << b.radius << " " << b.energy / b.radius / b.radius << " ";
 		}
+		log << endl;
 		//
 		for (int i = 0; i < bacteria.size(); ++i) {
 			Bacterium& b = bacteria[i];
-			history[b.id].push_back(b.getRecord(bacteria));
 			b.move();
 		}
 
