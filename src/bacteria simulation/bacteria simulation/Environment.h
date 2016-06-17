@@ -14,8 +14,9 @@ public:
 	std::ofstream fout;
 	Environment();
 	~Environment();
-	Environment(int size);
+	Environment(int size, int num_smart, double prob_naive);
 	void display();
 	void run(int tickNumber);
+	void CloseFile();
 };
 

@@ -10,26 +10,15 @@ public:
 	double energy;
 	double theta;
 	int age;
+	int smartlevel;
 	std::vector<std::string> history;
+	std::string netfile;
 
 	double getSpeed();
 	void move();
-	void initialize();
+	void initialize(int smart);
 	void updateDirection(std::vector<Bacterium>& bacteria);
 	bool touch(const Bacterium& b);
 	double dist(const Bacterium& b);
 	void log(std::vector<Bacterium>& bacteria);
-};
-
-class NaiveBacterium : Bacterium 
-{
-public:
-	void updateDirection(std::vector<Bacterium>& bacteria);
-};
-
-class SmartBacterium : Bacterium
-{
-public:
-	std::string netfile;
-	void updateDirection(std::vector<Bacterium>& bacteria);
 };

@@ -5,12 +5,12 @@ using namespace std;
 
 void FANN_Train(string datafile, string netfile) 
 {
-    const unsigned int num_input = 2;
+    const unsigned int num_input = 31;
     const unsigned int num_output = 1;
     const unsigned int num_layers = 3;
     const unsigned int num_neurons_hidden = 3;
     const float desired_error = (const float) 0.001;
-    const unsigned int max_epochs = 500000;
+    const unsigned int max_epochs = 10000;
     const unsigned int epochs_between_reports = 1000;
 
     struct fann *ann = fann_create_standard(num_layers, num_input,
@@ -39,14 +39,13 @@ fann_type* FANN_Test(string netfile, fann_type* input)
 }
 
 
-
 // int main()
 // {
-//     FANN_Train("training.in", "training.net");
-//     fann_type* input = new fann_type[2];
-//     input[0] = -1;
-//     input[1] = 1;
-//     fann_type *result = FANN_Test("training.net", input);
-//     printf("xor test (%f,%f) -> %f\n", input[0], input[1], result[0]);
+//     FANN_Train("test.txt", "training.net");
+//     // fann_type* input = new fann_type[2];
+//     // input[0] = -1;
+//     // input[1] = 1;
+//     // fann_type *result = FANN_Test("training.net", input);
+//     // printf("xor test (%f,%f) -> %f\n", input[0], input[1], result[0]);
 //     return 0;
 // }
