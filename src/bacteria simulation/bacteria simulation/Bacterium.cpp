@@ -64,7 +64,7 @@ void NaiveBacterium::updateDirection(vector<Bacterium>& bacteria) {
 	double mindist = INT_MAX;
 	for (int i = 0; i < bacteria.size(); i++)
 	{
-		if ((bacteria[i].radius > radius) && (this.dist(bacteria[i]) < mindist) {
+		if ((bacteria[i].radius > radius) && (dist(bacteria[i]) < mindist) {
 			mindist = this.dist(bacteria[i]);
 			double dy = positionY - bacteria[i].positionY;
 			double dx = positionX - bacteria[i].positionX;
