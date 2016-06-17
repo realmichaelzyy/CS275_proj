@@ -36,6 +36,12 @@ body {
 #demo-section {
   width: 80%;
   margin: 60px auto 10px;
+  text-align: center;
+}
+
+#demo-section svg {
+  /*width: 100%;*/
+  border: 1px solid #ccc;
 }
 
 #demo-section img {
