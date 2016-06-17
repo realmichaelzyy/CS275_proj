@@ -3,8 +3,6 @@
 #include "FANN.h"
 #include <random>
 #include <time.h>
-#include <utility>
-#include <iostream>
 using namespace std;
 
 void FANN_Train(string datafile, string netfile) 
@@ -12,10 +10,10 @@ void FANN_Train(string datafile, string netfile)
     const unsigned int num_input = 31;
     const unsigned int num_output = 2;
     const unsigned int num_layers = 3;
-    const unsigned int num_neurons_hidden = 5;
+    const unsigned int num_neurons_hidden = 3;
     const float desired_error = (const float) 0.001;
-    const unsigned int max_epochs = 1000;
-    const unsigned int epochs_between_reports = 100;
+    const unsigned int max_epochs = 5000;
+    const unsigned int epochs_between_reports = 1000;
 
     struct fann *ann = fann_create_standard(num_layers, num_input,
         num_neurons_hidden, num_output);
@@ -31,29 +29,27 @@ void FANN_Train(string datafile, string netfile)
     fann_destroy(ann);
 }
 
-void FANN_Test(string netfile, fann_type* input, double& dirX, double& dirY)
+fann_type* FANN_Test(string netfile, fann_type* input)
 {
     struct fann *ann = fann_create_from_file(netfile.c_str());
 
     fann_type *calc_out; 
     calc_out = fann_run(ann, input);
-    dirX = (double) calc_out[0];
-    dirY = (double) calc_out[1];
+
     fann_destroy(ann);
-    // pair<double, double> ret;
-    // ret.first = calc_out[0];
-    // ret.second = calc_out[1];
-    // return ret;
+    return calc_out;
 }
 
 
-// int main()
-// {
-//     FANN_Train("test.txt", "training.net");
-//     // fann_type* input = new fann_type[2];
-//     // input[0] = -1;
-//     // input[1] = 1;
-//     // fann_type *result = FANN_Test("training.net", input);
-//     // printf("xor test (%f,%f) -> %f\n", input[0], input[1], result[0]);
-//     return 0;
-// }
+int main()
+{
+    srand(time(NULL));
+    FANN_Train("train.data", "test.net");
+    fann_type* input = new fann_type[31];
+    for (int i = 0; i < 32; i++)
+        input[i] = ((double) rand() / (RAND_MAX));
+    fann_type *result = FANN_Test("test.net", input);
+    printf("ipnut (%f,%f,%f,%f,%f)\n", input[0], input[1], input[2], input[3], input[4]);
+    printf("dirX dirY (%f,%f)\n", result[0], result[1]);
+    return 0;
+}

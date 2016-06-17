@@ -11,7 +11,7 @@ Environment::Environment(int size, int num_smart = 0, double prob_naive = 0) {
 	fout.open(DataFile.c_str(), std::fstream::out);
 	log.open("log.txt", std::fstream::out);
 	bacteria.clear();
-	double rd = ((double) rand() / (RAND_MAX)) + 1;
+	double rd = ((double) rand() / (RAND_MAX));
 	for (int k = 0; k < size - num_smart; ++k) {
 		Bacterium bacterium;
 		if (rd < prob_naive)
@@ -22,7 +22,7 @@ Environment::Environment(int size, int num_smart = 0, double prob_naive = 0) {
 	}
 	for (int k = 0; k < num_smart; ++k) {
 		Bacterium bacterium;
-		bacterium.initialize(-count++, 2);
+		bacterium.initialize(count++, 2);
 		bacteria.push_back(bacterium);
 	}
 }
@@ -53,7 +53,7 @@ void Environment::run(int tickNumber) {
 		// Add bacteria when not enough
 		while (bacteria.size() <= NEIGHBOUR_SIZE) {
 			Bacterium b;
-			b.initialize(count++, 0);
+			b.initialize((count++), 3);
 			bacteria.push_back(b);
 		}
 
@@ -113,7 +113,7 @@ void Environment::run(int tickNumber) {
 					swap(bacteria[k], bacteria[k - 1]);
 					--k;
 				}
-				if (winner.size() > 10) winner.pop_back();
+				if (winner.size() > tickNumber / 10) winner.pop_back();
 			}
 		}
 

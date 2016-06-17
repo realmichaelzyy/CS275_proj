@@ -5,6 +5,7 @@
 #include <cmath>
 #include <sstream>
 #include <climits>
+#include <fstream>
 
 #if !defined(_WIN32)
 #include "FANN.h"
@@ -28,6 +29,7 @@ string Bacterium::getRecord(vector<Bacterium>& bacteria) {
 	}
 	ss << endl;
 	ss << cos(theta) << " " << sin(theta) << endl;
+	// ss << theta << endl;
 	return ss.str();
 }
 
@@ -47,9 +49,19 @@ void Bacterium::move() {
 
 
 void Bacterium::initialize(int id, int smart) {
+	/*
+		smart level:
+		0 : random
+		1 : naive ai
+		2 : nn smart ai
+		3 : 1/3 prob be 0/1/2
+	*/
 	smartlevel = smart;
+	if (smartlevel == 3) smartlevel = rand() % 3;
+
 	netfile = NetFile;
 	this->id = id;
+	if (smartlevel == 2) this->id = -this->id;
 	positionX = uniform(generator);
 	positionY = uniform(generator);
 	radius = (1 + geometric(generator)) * BASE_SIZE;
@@ -77,17 +89,24 @@ void Bacterium::updateDirection(vector<Bacterium>& bacteria) {
 	} 
 	#if !defined(_WIN32)
 	else if (smartlevel == 2) {
-		fann_type* input = new fann_type[NEIGHBOUR_SIZE * 3 + 1];
-		input[0] = radius;
-		for (int i = 0; i < bacteria.size(); i++)
-		{
-			input[3 * i + 1] = bacteria[i].positionX - positionX;
-			input[3 * i + 2] = bacteria[i].positionY - positionY;
-			input[3 * i + 3] = bacteria[i].radius;
+		ifstream file(netfile);
+		if (file) {
+			fann_type* input = new fann_type[NEIGHBOUR_SIZE * 3 + 1];
+			input[0] = radius;
+			for (int i = 0; i < bacteria.size(); i++)
+			{
+				input[3 * i + 1] = bacteria[i].positionX - positionX;
+				input[3 * i + 2] = bacteria[i].positionY - positionY;
+				input[3 * i + 3] = bacteria[i].radius;
+			}
+			double dirX,dirY;
+			FANN_Test(netfile, input, dirX, dirY);
+			
+			theta = atan2(dirX, dirY);
+			//cout << "dirX, dirY: " << dirX << " " << dirY << " " << theta << endl;
+
+			delete[] input;
 		}
-		fann_type *result = FANN_Test(netfile, input);
-		theta = atan(result[1] / result[0]);
-		delete[] input;
 	}
 	#endif
 }

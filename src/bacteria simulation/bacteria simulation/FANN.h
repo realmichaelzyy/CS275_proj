@@ -4,4 +4,4 @@
 
 void FANN_Train(std::string datafile, std::string netfile);
 
-fann_type* FANN_Test(std::string netfile, fann_type* input);
+void FANN_Test(std::string netfile, fann_type* input, double& dirX, double& dirY);
