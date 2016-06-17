@@ -53,7 +53,7 @@ void Environment::run(int tickNumber) {
 		// Add bacteria when not enough
 		while (bacteria.size() <= NEIGHBOUR_SIZE) {
 			Bacterium b;
-			b.initialize(count++, 0);
+			b.initialize(-(count++), 2);
 			bacteria.push_back(b);
 		}
 
