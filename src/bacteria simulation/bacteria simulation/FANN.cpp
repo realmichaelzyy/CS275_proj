@@ -14,6 +14,7 @@ void FANN_Train(string datafile, string netfile)
     const unsigned int num_layers = 3;
     const unsigned int num_neurons_hidden = 5;
     const float desired_error = (const float) 0.001;
+
     const unsigned int max_epochs = 1000;
     const unsigned int epochs_between_reports = 100;
 
