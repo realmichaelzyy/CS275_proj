@@ -7,8 +7,6 @@
 #include <fstream>
 #include "Bacterium.h"
 
-const int NEIGHBOUR_SIZE = 10;
-
 class Environment
 {
 public:

@@ -3,6 +3,9 @@
 #include "Helper.h"
 #include <cmath>
 #include <sstream>
+#include <climits>
+
+#include "FANN.h"
 
 using namespace std;
 
@@ -61,16 +64,29 @@ double Bacterium::dist(const Bacterium& b) {
 }
 
 
-void SimpleBacterium::updateDirection(vector<Bacterium>& bacteria) {
+void NaiveBacterium::updateDirection(vector<Bacterium>& bacteria) {
 	Bacterium::updateDirection(bacteria);
-	double max_radius = radius;
+	double mindist = INT_MAX;
 	for (int i = 0; i < bacteria.size(); i++)
 	{
-		if (bacteria[i].radius > max_radius) {
-			max_radius = bacteria[i].radius;
+		if ((bacteria[i].radius > radius) && (this.dist(bacteria[i]) < mindist) {
+			mindist = this.dist(bacteria[i]);
 			double dy = positionY - bacteria[i].positionY;
 			double dx = positionX - bacteria[i].positionX;
 			theta = atan2(dy, dx);
 		}
 	}
+}
+
+void SmartBacterium::updateDirection(vector<Bacterium>& bacteria) {
+	fann_type* input = new fann_type(NEIGHBOUR_SIZE * 3 + 1);
+	input[0] = radius;
+	for (int i = 0; i < bacteria.size(); i++)
+	{
+		input[3 * i + 1] = bacteria[i].positionX - positionX;
+		input[3 * i + 2] = bacteria[i].positionY - positionY;
+		input[3 * i + 3] = bacteria[i].radius;
+	}
+	fann_type *result = FANN_Test(netfile, input);
+	theta = result[0];
 }
