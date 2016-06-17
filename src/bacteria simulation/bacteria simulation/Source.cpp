@@ -24,15 +24,15 @@ int main() {
 	// base_environment.display();
 	base_environment.run(500);
 	base_environment.CloseFile();
-// 	for (int iter = 0; iter < niters; iter++) {
-// #if !defined(_WIN32)
-// 		FANN_Train(DataFile, NetFile);
-// #endif
-// 		printf("train completed\n");
-// 		Environment environment(20, 1, 0.5);
-// 		// environment.display();
-// 		environment.run(500);
-// 	}
+	for (int iter = 0; iter < niters; iter++) {
+		#if !defined(_WIN32)
+		FANN_Train(DataFile, NetFile);
+		#endif
+		printf("train completed\n");
+		Environment environment(20, 1, 0.5);
+		// environment.display();
+		environment.run(500);
+	}
 	printf("Completed!\n");
 	// system("pause");
 }

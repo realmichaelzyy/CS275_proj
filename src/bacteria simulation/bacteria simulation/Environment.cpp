@@ -22,7 +22,7 @@ Environment::Environment(int size, int num_smart = 0, double prob_naive = 0) {
 	}
 	for (int k = 0; k < num_smart; ++k) {
 		Bacterium bacterium;
-		bacterium.initialize(count++, 2);
+		bacterium.initialize(-count++, 2);
 		bacteria.push_back(bacterium);
 	}
 }
