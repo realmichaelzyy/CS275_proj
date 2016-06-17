@@ -23,8 +23,14 @@ private:
 	void log(std::vector<Bacterium>& bacteria);
 };
 
-class SimpleBacterium : Bacterium 
+class NaiveBacterium : Bacterium 
 {
 public:
 	void updateDirection(std::vector<Bacterium>& bacteria);
 };
+
+class SmartBacterium : Bacterium
+{
+public:
+	void updateDirection(std::vector<Bacterium>& bacteria);
+}
