@@ -27,7 +27,7 @@ string Bacterium::getRecord(vector<Bacterium>& bacteria) {
 		ss << " " << bacteria[i].positionX - positionX << " " << bacteria[i].positionY - positionY << " " << bacteria[i].radius;
 	}
 	ss << endl;
-	ss << theta << endl;
+	ss << cos(theta) << " " << sin(theta) << endl;
 	return ss.str();
 }
 
@@ -75,7 +75,7 @@ void Bacterium::updateDirection(vector<Bacterium>& bacteria) {
 			}
 		}
 	} 
-#if !defined(_WIN32)
+	#if !defined(_WIN32)
 	else if (smartlevel == 2) {
 		fann_type* input = new fann_type[NEIGHBOUR_SIZE * 3 + 1];
 		input[0] = radius;
@@ -86,10 +86,10 @@ void Bacterium::updateDirection(vector<Bacterium>& bacteria) {
 			input[3 * i + 3] = bacteria[i].radius;
 		}
 		fann_type *result = FANN_Test(netfile, input);
-		theta = result[0];
+		theta = atan(result[1] / result[0]);
 		delete[] input;
 	}
-#endif
+	#endif
 }
 
 bool Bacterium::touch(const Bacterium& b) {
