@@ -148,7 +148,7 @@ void Environment::run(int tickNumber) {
 		Bacterium& b = winner[i];
 		sampleCount += history[winner[i].id].size();
 	}
-	fout << sampleCount << " " << 31 << " " << 2 << endl;
+	fout << sampleCount << " " << 41 << " " << 2 << endl;
 	for (int i = 0; i < winner.size(); ++i) {
 		Bacterium& b = winner[i];
 		vector<string>& his = history[winner[i].id];

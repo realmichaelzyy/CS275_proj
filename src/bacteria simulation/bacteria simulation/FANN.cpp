@@ -9,7 +9,7 @@ using namespace std;
 
 void FANN_Train(string datafile, string netfile) 
 {
-    const unsigned int num_input = 31;
+    const unsigned int num_input = 41;
     const unsigned int num_output = 2;
     const unsigned int num_layers = 3;
     const unsigned int num_neurons_hidden = 5;
