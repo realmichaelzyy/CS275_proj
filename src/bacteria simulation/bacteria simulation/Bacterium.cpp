@@ -17,7 +17,7 @@ double Bacterium::getSpeed() {
 	return BASE_SPEED / (radius / BASE_SIZE);
 }
 
-void Bacterium::log(vector<Bacterium>& bacteria) {
+string Bacterium::getRecord(vector<Bacterium>& bacteria) {
 	stringstream ss;
 	ss << radius;
 	for (int i = 0; i < bacteria.size(); ++i) {
@@ -25,9 +25,7 @@ void Bacterium::log(vector<Bacterium>& bacteria) {
 	}
 	ss << endl;
 	ss << theta << endl;
-	//cout << ss.str();
-	//system("pause");
-	history.push_back(ss.str());
+	return ss.str();
 }
 
 void Bacterium::move() {
@@ -39,13 +37,15 @@ void Bacterium::move() {
 	positionY += directionY;
 	if (positionX > 1 || positionX < 0) directionX = -directionX;
 	if (positionY > 1 || positionY < 0) directionY = -directionY;
-	energy -= radius * radius * 0.05;
+	energy -= radius * radius * 0.01 * radius / BASE_SIZE;
 	++age;
 }
 
-void Bacterium::initialize(int smart) {
+
+void Bacterium::initialize(int id, int smart) {
 	smartlevel = smart;
 	netfile = NetFile;
+	this->id = id;
 	positionX = uniform(generator);
 	positionY = uniform(generator);
 	radius = (1 + geometric(generator)) * BASE_SIZE;
