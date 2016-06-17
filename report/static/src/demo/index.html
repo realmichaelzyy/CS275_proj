@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="http://jonobr1.github.io/two.js/third-party/url.js"></script>
+    <script src="http://jonobr1.github.io/two.js/third-party/jquery.js"></script>
+    <script src="http://jonobr1.github.io/two.js/third-party/two.js"></script>
+  </head>
+  <body>
+    <div class="scripts">
+      <script>
+      $(function(){
+        var type = 'svg';
+        var two = new Two({
+          type: Two.Types[type],
+          fullscreen: true,
+          autostart: true
+        }).appendTo(document.body);
+        two.Resolution = 32;
+
+        var rInit = 10;
+        var scale = two.height;
+        var frameStep = 3;
+        var sp = {{ script | safe }};
+        var balls = {};
+
+        function makeBall(s, i) {
+          var b = two.makeCircle(s.x * scale, s.y * scale, rInit);
+          var cr = Math.round(Math.random()*256);
+          var cg = Math.round(Math.random()*256);
+          var cb = Math.round(Math.random()*256);
+          // b.stroke = 'rgba('+cr+', '+cg+', '+cb+', 0.6)';
+          b.stroke = 'rgba(255, 0, 0,'+s.e+')';
+          b.linewidth = 2;
+          // if (i < 0)
+          //   b.fill = 'rgba(0, 0, 0, 1)';
+          // else
+            b.fill = 'rgba('+cr+', '+cg+', '+cb+', 0.3)';
+          b.scale = s.r * scale / rInit;
+          return b;
+        }
+
+        two.bind('update', function(fc) {
+          if (fc % frameStep != 0)
+            return true;
+          var fn = Math.round(fc / frameStep);
+          if (!sp[fn])
+            return true;
+
+          for (var i in balls)
+            if (!sp[fn][i]) {
+              two.remove(balls[i]);
+              delete balls[i];
+              console.log('- ' + i);
+            }
+          for (var i in sp[fn]) {
+            if (!balls[i]) {
+              balls[i] = makeBall(sp[fn][i], i);
+              console.log('+ ' + i);
+            } else {
+              balls[i].translation.x = sp[fn][i].x * scale;
+              balls[i].translation.y = sp[fn][i].y * scale;
+              balls[i].scale = sp[fn][i].r * scale / rInit;
+              balls[i].stroke = 'rgba(255, 100, 100,'+sp[fn][i].e+')';
+              // console.log(balls[i].translation.x, balls[i].translation.y, balls[i].scale*rInit);
+            }
+          }
+        });
+      });
+      </script>
+    </div>
+  </body>
+</html>
