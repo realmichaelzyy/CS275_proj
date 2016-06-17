@@ -10,7 +10,11 @@ using namespace std;
 
 #include "Bacterium.h"
 #include "Environment.h"
+
+#if !defined(_WIN32)
 #include "FANN.h"
+#endif
+
 #include "Helper.h"
 
 int main() {
@@ -21,7 +25,9 @@ int main() {
 	base_environment.run(100);
 	base_environment.CloseFile();
 	for (int iter = 0; iter < niters; iter++) {
+#if !defined(_WIN32)
 		FANN_Train(DataFile, NetFile);
+#endif
 		printf("train completed\n");
 		Environment environment(20, 1, 0.5);
 		// environment.display();

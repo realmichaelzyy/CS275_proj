@@ -1,11 +1,14 @@
 #define _USE_MATH_DEFINES
+
 #include "Bacterium.h"
 #include "Helper.h"
 #include <cmath>
 #include <sstream>
 #include <climits>
 
+#if !defined(_WIN32)
 #include "FANN.h"
+#endif
 
 using namespace std;
 
@@ -51,10 +54,14 @@ void Bacterium::initialize(int id, int smart) {
 	positionY = uniform(generator);
 	radius = (1 + geometric(generator)) * BASE_SIZE;
 	energy = radius * radius;
+	theta = (uniform(generator) - 0.5) * 2 * M_PI;
 	age = 0;
 }
 
 void Bacterium::updateDirection(vector<Bacterium>& bacteria) {
+	if (uniform(generator) < 0.7) {
+		return;
+	}
 	theta = (uniform(generator) - 0.5) * 2 * M_PI;
 	if (smartlevel == 1) {
 		double mindist = INT_MAX;
@@ -68,6 +75,7 @@ void Bacterium::updateDirection(vector<Bacterium>& bacteria) {
 			}
 		}
 	} 
+#if !defined(_WIN32)
 	else if (smartlevel == 2) {
 		fann_type* input = new fann_type[NEIGHBOUR_SIZE * 3 + 1];
 		input[0] = radius;
@@ -81,7 +89,7 @@ void Bacterium::updateDirection(vector<Bacterium>& bacteria) {
 		theta = result[0];
 		delete[] input;
 	}
-
+#endif
 }
 
 bool Bacterium::touch(const Bacterium& b) {
