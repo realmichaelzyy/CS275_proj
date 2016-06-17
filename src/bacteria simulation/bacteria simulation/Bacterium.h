@@ -10,7 +10,7 @@ public:
 	double energy;
 	double theta;
 	int age;
-	int id
+	int id;
 	int smartlevel;
 	std::vector<std::string> history;
 	std::string netfile;

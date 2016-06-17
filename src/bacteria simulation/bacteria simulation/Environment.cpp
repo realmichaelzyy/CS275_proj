@@ -138,7 +138,7 @@ void Environment::run(int tickNumber) {
 			newBacteria.push_back(b);
 		}
 		bacteria = newBacteria;
-		display();
+		// display();
 		//cout << "~~~~~~~" << endl;
 		//system("pause");
 	}

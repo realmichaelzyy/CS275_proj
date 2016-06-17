@@ -5,7 +5,7 @@
 #include <sstream>
 #include <climits>
 
-//#include "FANN.h"
+#include "FANN.h"
 
 using namespace std;
 
