@@ -9,6 +9,10 @@
 
 using namespace std;
 
+std::default_random_engine generator;
+std::uniform_real_distribution<double> uniform(0.0, 1.0);
+std::geometric_distribution<int> geometric(0.6);
+
 double Bacterium::getSpeed() {
 	return BASE_SPEED / (radius / BASE_SIZE);
 }
