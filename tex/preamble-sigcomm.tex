@@ -1,0 +1,288 @@
+\usepackage[usenames,dvipsnames]{color}
+\definecolor{mycitegreen}{RGB}{0,90,0}
+\definecolor{myrefblue}{RGB}{90,0,0}
+\definecolor{cyred}{RGB}{140,0,0}
+\definecolor{commentgreen}{RGB}{0,80,0}
+\usepackage[draft=true, final=true, colorlinks=true, citecolor=mycitegreen, linkcolor=myrefblue, anchorcolor=myrefblue, pagebackref=false]{hyperref}
+\usepackage{graphics,enumitem}
+\usepackage{epsfig}
+\usepackage[captionskip=0pt, font={small}]{subfig}
+\usepackage{color}
+\usepackage{url}
+\usepackage{xspace}
+\let\proof\relax
+\let\endproof\relax
+\usepackage{amsthm}
+%\usepackage[charter]{template/mathdesign/mathdesign}
+%\usepackage{MinionPro}
+%\setlength{\textheight}{9.4in}
+%setlength{\textheight}{9.25in}
+%\setlength{\textwidth}{6.75in}
+%\setlength{\columnsep}{.33in}
+%\usepackage[]{geometry}
+
+%\usepackage{algpseudocode}
+%\usepackage{rawfonts}
+%\include{amsthm.sty}
+% Define new commands
+%\usepackage{amsthm}
+%\usepackage{fmtcount}
+%\usepackage{threeparttable}
+
+\iffalse
+
+%% PACKAGE %%
+%\usepackage[font=small,labelfont=bf,tableposition=top]{caption}
+%\usepackage[font=footnotesize]{subfig}
+%\usepackage{caption}
+\usepackage{floatrow}
+% Table float box with bottom caption, box width adjusted to content
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]
+\usepackage{blindtext}
+
+%\usepackage{sectsty}
+\usepackage{graphicx}
+%\usepackage{times}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{subfigure}
+\usepackage{url}
+\def\UrlBreaks{\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z\do\[\do\\\do\]\do\^\do\_\do\`\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]\do\)\do\,\do\?\do\'\do+\do\=\do\#}%
+\usepackage{cite}%
+\usepackage{color}
+\usepackage[normalem]{ulem}
+\usepackage{fmtcount}
+\usepackage{times}
+\usepackage{cite}
+\usepackage{amsfonts,amssymb}
+\usepackage{balance}
+\usepackage{verbatim}
+\usepackage{appendix}
+%\usepackage{algorithmicx,array}
+\usepackage{bbding}
+\usepackage{floatrow}
+\usepackage{tabularx}
+\fi
+\usepackage[english]{babel}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{balance}
+\usepackage{multirow}
+
+%\usepackage{tikz}
+%\usepackage{algorithm}
+%\usepackage{algorithmic,eqparbox,array}
+\renewcommand\algorithmiccomment[1]{%
+    \hfill\///\ \eqparbox{COMMENT}{#1}%
+}
+\newcommand\LONGCOMMENT[1]{%
+    \hfill\///\ \begin{minipage}[t]{\eqboxwidth{COMMENT}}#1\strut\end{minipage}%
+}
+
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=0pt] (char) {#1};}}
+
+% use color in table
+\usepackage{xcolor,colortbl}
+\newcommand{\mc}[2]{\multicolumn{#1}{c}{#2}}
+\definecolor{Gray}{gray}{0.85}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\newcolumntype{a}{>{\columncolor{Gray}}c}
+\newcolumntype{b}{>{\columncolor{white}}c}
+
+% Compact itemize and enumerate.  Note that they use the same counters and
+% symbols as the usual itemize and enumerate environments.
+\def\compactify{\itemsep=0pt \topsep=0pt \partopsep=0pt \parsep=0pt}
+ \let\latexusecounter=\usecounter
+ \newenvironment{CompactItemize}
+   {\def\usecounter{\compactify\latexusecounter}
+    \begin{itemize}}
+   {\end{itemize}\let\usecounter=\latexusecounter}
+ \newenvironment{CompactEnumerate}
+   {\def\usecounter{\compactify\latexusecounter}
+    \begin{enumerate}}
+   {\end{enumerate}\let\usecounter=\latexusecounter}
+
+
+\newenvironment{noindlist}
+ {\begin{list}{*}
+ {\leftmargin=0.35em \itemindent=0em \labelwidth = 0em \labelsep = 0.1em \itemsep = 0em \parsep = 0em \topsep = 0em \listparindent = 0.5in}}
+ {\end{list}}
+
+\newenvironment{noinditemize}{
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{-3pt}
+  \setlength{\parsep}{-3pt}
+}{\end{itemize}}
+
+
+
+
+
+%% ----------------Customized commands -----------------%
+%
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{theorem}[lemma]{Theorem}
+%\renewcommand{\paragraph}[1]{\smallskip \noindent \textbf{#1}\qquad}
+
+
+% Paragraph Highlight
+\newcommand{\paragraphb}[1]{\vspace{1mm}\noindent{\bf #1.} \quad}
+\newcommand{\paragraphe}[1]{\vspace{1mm}\noindent{\em #1.} \quad}
+\newcommand{\paragraphbe}[1]{\vspace{1mm}\noindent{\bf \em #1.} \quad}
+
+
+% Customized shorts
+\def\ie{\textit{i.e.}\xspace}
+\def\etal{\textit{et al.}\xspace}
+\def\etc{\textit{etc.}\xspace}
+\def\eg{\textit{e.g.}\xspace}
+\def\wrt{\textit{w.r.t.}\xspace}
+\def\name{\textsc{InFrame}\xspace}
+
+\newcommand{\SWITCH}[1]{\State \textbf{switch} (#1)}
+\newcommand{\ENDSWITCH}{\State \textbf{end switch}}
+\newcommand{\CASE}[1]{\State \textbf{case} #1\textbf{:} \begin{ALC@g}}
+\newcommand{\ENDCASE}{\end{ALC@g}}
+\newcommand{\CASELINE}[1]{\State \textbf{case} #1\textbf{:} }
+\newcommand{\DEFAULT}{\State \textbf{default:} \begin{ALC@g}}
+\newcommand{\ENDDEFAULT}{\end{ALC@g}}
+\newcommand{\DEFAULTLINE}[1]{\State \textbf{default:} }
+
+
+\newcommand{\interfigskip}{\vspace{-12pt}}
+\newcommand{\listskip}{\vspace{-5pt}}
+\newcommand{\listskips}{\vspace{-3pt}}
+
+% Comment Colors 
+\iffalse
+%\algnewcommand\algorithmicswitch{\textbf{switch}}
+%\algnewcommand\algorithmiccase{\textbf{case}}
+
+
+%%\algnewcommand\algorithmicassert{\texttt{assert}}
+%%\algnewcommand\Assert[1]{\State \algorithmicassert(#1)}%
+%% New "environments"
+%\algdef{SE}[SWITCH]{Switch}{EndSwitch}[1]{\algorithmicswitch\ #1\ \algorithmicdo}{\algorithmicend\ \algorithmicswitch}%
+%\algdef{SE}[CASE]{Case}{EndCase}[1]{\algorithmiccase\ #1}{\algorithmicend\ \algorithmiccase}%
+%\algtext*{EndSwitch}
+%\algtext*{EndCase}%
+
+% Comment colors
+%\newcommand{\comment}{\textcolor{black}}
+%\newcommand{\prooffontsize}{\fontsize{8pt}{9.3pt}\selectfont}
+%\newcommand{\cready}{\textcolor{black}}
+\fi
+
+
+%\newif\ifdebugdoc\debugdocfalse
+\newif\ifdebugdoc\debugdoctrue
+
+
+\ifdebugdoc
+%% Writing Mode
+\newcommand{\fhl}[1]{\textcolor{blue}{#1}}
+\newcommand{\fyi}[1]{}
+%\newcommand{\fyi}[1]{\footnote{\textcolor{blue}{fyi:#1}}}
+\newcommand{\remind}[1]{\footnote{\textit{[\uwave{Remind:} #1]}}}
+\newcommand{\repl}[2]{\textcolor{red}{#1}\textcolor{blue}{\sout{#2}}}
+\newcommand{\add}[1]{\textcolor{red}{#1}}
+\newcommand{\del}[1]{\textcolor{blue}{\sout{#1}}}
+\newcommand{\outline}[1]{\textbf{\colorbox{yellow}{Outline:}\textcolor{red}{#1.}}}
+\newcommand{\old}[1]{\large{\colorbox{blue}{Former: #1}}}
+%\newcommand{\chunyi}[1]{\footnote{\colorbox{yellow}{Chunyi:} #1.}}
+\newcommand{\chunyi}[1]{\textcolor{blue}{Chunyi:#1}}
+\newcommand{\anran}[1]{\footnote{\colorbox{red}{Anran:} #1.}}
+\newcommand{\AnranAdd}[1]{\textcolor[rgb]{0.5,0.5,0}{#1}}
+\newcommand{\AnranDel}[1]{\sout{#1}}
+
+
+\newcommand{\frepl}[2]{\textcolor{red}{#1}\textcolor{blue}{\sout{#2}}}
+\newcommand{\fadd}[1]{\textcolor{red}{#1}}
+\newcommand{\fdel}[1]{\textcolor{blue}{\sout{#1}}}
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{ToDo: #1}}}
+
+%\newcommand{\comment}{\textcolor{black}}
+\newcommand{\prooffontsize}{\fontsize{8pt}{9.3pt}\selectfont}
+\newcommand{\cready}{\textcolor{black}}
+\newcommand{\newcomment}{\textcolor{black}}
+
+%\newcommand{\cy}{\textcolor{cyred}{[CY-FIXME]}~\textcolor{cyred}}
+%\newcommand{\cycomment}{\textcolor{cyred}}
+\newcommand{\cycomment}{\textcolor{black}}
+%\newcommand{\matt}[1]{{{#1}}} 
+%\newcommand{\matt}[1]{{\color{blue}{#1}}}
+\newcommand{\matt}[1]{{\color{black}{#1}}}
+%\newcommand{\mattc}[1]{{\color{blue}\bf\em{}}} 
+%\newcommand{\mattc}[1]{{\color{blue}\bf\em{[matt: #1]}}} 
+\newcommand{\codecomment}{\textcolor{commentgreen}}
+%\newcommand{\pbg}{\textcolor{green}}
+
+
+
+%\newcommand{\corule}{Rule\xspace}
+%\newcommand{\orule}{rule\xspace}
+%\newcommand{\orules}{rules\xspace}
+%
+%\newcommand{\cprops}{Service properties\xspace}
+%\newcommand{\props}{service properties\xspace}
+%
+%
+%% To make the FIXMEs go away, comment out this line...
+%\newcommand{\fixme}[1]{{\bf\textcolor{red}{[#1]}}}
+%% ...and uncomment this one.
+%%\newcommand{\fixme}[1]{}
+%\newcommand{\helpme}[1]{{\bf\textcolor{red}{#1}}}
+
+
+\else
+%%Submission Mode
+\newcommand{\fhl}[1]{#1}
+\newcommand{\fyi}[1]{}
+\newcommand{\remind}[1]{#1}
+\newcommand{\repl}[2]{#1}
+\newcommand{\add}[1]{#1}
+\newcommand{\del}[1]{}
+\newcommand{\chunyi}[1]{}
+\newcommand{\outline}[1]{}
+\newcommand{\frepl}[2]{#1}
+\newcommand{\fadd}[1]{#1}
+
+\newcommand{\fdel}[1]{}  %due to space limitation
+\newcommand{\todo}[1]{}
+%\newcommand{\frepl}[2]{\textcolor{red}{#1}\textcolor{blue}{\sout{#2}}}
+%\newcommand{\fadd}[1]{\textcolor{red}{#1}}
+%\newcommand{\fdel}[1]{\textcolor{blue}{\sout{#1}}}
+\fi
+
+%\newif\ifflow\flowfalse
+\newif\ifflow\flowtrue
+\ifflow
+\newcommand{\p}[1]{\vskip 1ex\noindent\colorbox{yellow}{\parbox{\columnwidth}{\textbf{Point:} #1}}}
+\newcommand{\q}[1]{\vskip 1ex\noindent\colorbox{cyan}{\parbox{\columnwidth}{\textbf{Question:} #1}}}
+\else
+\newcommand{\p}[1]{}
+\newcommand{\q}[1]{}
+\fi
+
+%\newcommand{\fadd}[1]{\textcolor{red}{#1}}
+%\newcommand{\fdel}[1]{\textcolor{blue}{\sout{#1}}}
+
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+
+%\newcommand{\fdel}[1]{}
+%\newcommand{\fadd}[1]{#1}f
+
+%\baselineskip=12.1bp
+%\showthe\baselineskip
+
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+

@@ -1,0 +1,160 @@
+%\documentclass[letterpaper,twocolumn,10pt]{article}
+%\usepackage{usenix,epsfig,endnotes}
+
+
+
+%\documentclass[conference]{IEEEtran}
+%\documentclass[10pt,conference,letterpaper]{./template/IEEEtran-pcy-2013} % S&P template
+%\documentclass[conference,letterpaper]{./template/IEEEtran} % S&P template
+
+
+\documentclass{./template/sig-alternate-10pt-tight}
+% \documentclass{./template/sig-alternate-10pt}
+
+
+%\newif\ifdebugdoc\debugdocfalse
+\newif\ifdebugdoc\debugdoctrue
+%\newif\ifflow\flowfalse
+\newif\ifflow\flowtrue
+
+
+
+\input{preamble}
+
+\begin{document}
+\title{CS211 Project Proposal} 
+
+
+ 
+% ACM author
+\newfont{\myfnt}{phvr8t at 9.5pt}
+\numberofauthors{1}
+\author{
+Zengwen Yuan, Kainan Wang, Jie Wang}
+
+\maketitle
+\begin{sloppypar}
+
+\maketitle
+
+% Use the following at camera-ready time to suppress page numbers.
+% Comment it out when you first submit the paper for review.
+%\thispagestyle{empty}
+
+\section{Introduction}
+
+
+
+Mobile Internet access has become an essential part of our daily life with our smartphones.
+%driven by explosive and continuously increasing user demands and rapid proliferation of smart mobile devices, including smartphones, tablets and wearables, to name a few.
+From the user's perspective, (s)he demands for high-quality, anytime, and anywhere network access. 
+%This fuels the fast evolution and wide deployment of advanced cellular network technologies. 
+ %today's cellular networks are rapidly evolving to meet the growing end-user demands. 
+%To date, cellular network is the only large-scale, wide-area mobile network infrastructure that offer ubiquitous network access to billions of mobile users in practice. 
+%As the only large-scale, wide-area mobile network infrastructure, cellular networks play a vital role in offering ubiquitous network access to billions of mobile users in practice. 
+From the infrastructure's standpoint, carriers are migrating towards faster technologies (\eg, from 3G to 4G LTE), while boosting network capacity through 
+dense deployment and efficient spectrum utilization. Despite such continuous efforts, no single carrier can ensure complete coverage or highest access quality at any place and anytime. 
+
+In additional to infrastructure upgrade from carriers, a promising alternative is to leverage multiple carrier networks at the end device.
+% Zengwen: Besides network infrastructure upgrade from carriers, a promising alternative is to leveraging multiple cellular carriers at the end device.
+%the end device can alternatively improve its network access quality by leveraging multiple carriers. 
+In practice, most regions are covered by more than one carrier (say, Verizon, T-Mobile, Sprint, \etc in the US). 
+%Despite large investment and careful planning, no single carrier can ensure full coverage or best network quality at any place and anytime. 
+%Rather than staying in a single carrier network, the device could intelligently select between carrier network, and improve its network service quality.
+With multi-carrier access, the device may intelligently select among carrier networks and improve its access quality.
+% Zengwen: Given that most areas are covered by more than one carrier, and currently no carrier guarantees full coverage or best network quality at everywhere or anytime, the network service quality could be greatly enhanced if the device could intelligently select between carrier networks.
+To this end, industrial efforts have recently emerged to provide 3G/4G multi-carrier access via universal SIM card, including Google Project Fi~\cite{fi}, Apple SIM\cite{apple-sim}, and Samsung e-SIM\cite{samsung-esim}.
+The ongoing 5G standardization also seeks to integrate heterogenous network technologies \cite{ngmn-5g}.
+%Besides, the emerging 5G technology also discusses the feasibility of exploring heterogeneous cellular technologies to improve the network service\cite{lte-u,ngmn-5g}.
+%multi-carrier access in 3G/4G becomes physically feasible with the emergence universal SIM cards (Google Project Fi~\cite{fi}, Apple SIM\cite{apple-sim}, and Samsung e-SIM\cite{samsung-esim}),  this becomes physically feasible to enable multi-carrier access. 
+
+However, study shows that the full benefits of multiple carrier access can be limited by today's cellular design. 
+% Zengwen: However, we find that the potential benefits of current multi-carrier access can be limited by today's cellular design.
+
+It turns out that, these problems are rooted in the conflicts between legacy 3G/4G roaming design and user's multi-carrier access requests.
+% Zengwen: in the beginning we mentioned "user", but now it is "users".
+With the single-carrier scenario in mind, the 3G/4G design places the controllability of carrier access to the network side. 
+Roaming to other carriers is not preferred unless the home carrier is unavailable. 
+As a result, today's carrier selection mechanism (i.e., PLMN selection) passively monitors other carriers after losing home carrier service, and selects the carrier based on pre-defined roaming preference given by the serving carrier network \cite{TS36.304,TS23.122}.
+Although viable in the single carrier case, this design limits user's ability to explore multiple carriers. 
+The user could miss the high-quality carrier network, delay the switch with redundant carrier scanning, and get stuck in the low-quality carrier.
+
+While this problem may be solved in future architecture design (\eg 5G), it takes years to accompolish.
+% Zengwen: and it will still remain in (legacy) 3G/4G cellular network
+Instead, we seek to devise a solution that works in today's 3G/4G network, in line with ongoing industrial efforts, \eg Google \pfi, Apple SIM and Samsung e-SIM.
+% Zengwen: Instead, we would prefer a solution that is workable in today's 3G/4G network.
+%In particular, such solution could benefit emerging efforts in 3G/4G network (\eg Google \pfi, Apple SIM and Samsung e-SIM).
+% Zengwen: such solution could help
+Specifically, we address the following problem: \emph{can we overcome the design limitations of legacy 3G/4G roaming, 
+without modifying phone hardware and 3G/4G network infrastructure?}
+% Zengwen: without changing commodity phone hardware or 3G/4G network infrastructure
+%Given this fact, we ask the following question:
+
+We propose \icellular, a phone-side service to let users define their own cellular network access. 
+Different from the traditional network-controlled roaming, \icellular enhances the user's role in multi-carrier access. %, since the user has a global view of available carriers.
+It offers users high-level APIs to customize the access strategy. 
+\icellular is built on top of current 3G/4G mechanisms at the device, but applies cross-layer adaptations to ensure 
+responsive multi-carrier access with minimal disruption. 
+To help users make proper decisions, \icellular exploits online learning to predict heterogenous carrier's performance. 
+It further safeguards access decisions with fault prevention techniques. 
+We tries to implement \icellular on commodity phone models and assess its performance with \pfi based on previous work.
+
+
+\section{Survey}
+The network side efforts include sharing the radio resource\cite{panchal2013mobile,DiFrancesco2014sharing} and infrastructure \cite{costa2013radio,kokku2012nvs,zaki2011lte,copeland2011resolving} between carriers, which helps reduce deployment cost.
+%On the device side, clean-slate designs have been proposed\cite{deb2011mota,dual-sim-phone} to access multiple carriers with dual SIM cards. 
+On the device side, both clean-slate design with dual SIM cards\cite{deb2011mota,dual-sim-phone} and single universal SIM card\cite{fi,apple-sim,samsung-esim} are explored for multi-carrier access.
+Our work complements the single-SIM approach for incremental deployment, but differs from recent efforts by moving beyond the network-controlled roaming, and offering user-defined selection in a responsive and non-disruptive way.
+%because we apply adaptation for responsiveness and min-disruption, and provide prediction and fault-tolerance approaches to help user make wise switch decisions.
+
+\icellular explores the rich cellular connectivities on mobile device.
+Similar efforts explore the multiple physical interfaces from WiFi and cellular network, including WiFi offloading\cite{deng2014wifi,balasubramanian10-offloading,dimatteo11-offloading} and multipath-TCP\cite{paasch12-cellnet,wischik2011design}.
+%Early efforts focus on offloading the cellular data to the WIFI interface\cite{deng2014wifi,balasubramanian10-offloading,dimatteo11-offloading}, while recent studies seek to improve performance with simultaneous use of WIFI and cellular interfaces with MPTCP\cite{paasch12-cellnet,wischik2011design}.
+\icellular differs from them since it uses single cellular interface.
+In the WiFi context, recent works\cite{bejerano2006mifi,croitoru2015towards,kandula2008fatvap} propose aggregate multiple APs for higher capacity.
+%Although available in WiFI, today's 3G/4G cellular network design disallows concurrent registration to multiple carriers ($\S$\ref{sect:design:api}).  
+As discussed in $\S$\ref{sect:design:api}, similar techniques are unavailable for 3G/4G.
+Instead, \icellular chooses to let users customize the selection strategies between carriers.
+
+\section{Timeline}
+For now, we already got an interface that can collect runtime data through built-in analyzers. What we need to do first is to handle these data inside the mobile application. The premilary work is to build 
+a reasonable metric to measure the performance of different services based on the information we get, which need to transplant the original code to android. Then, we need to show our result in various format like chart or table. 
+
+Finally, we should enable the phone to switch automatically and ensure the performance not affected. Through the whole project, we still need to pay attention to possible alternative solutions and optimizations.
+
+\section{Roadmap}
+
+\begin{itemize}
+\item Get Information From Low Level Interface\\
+	typically in one week
+\item Transplant Analyze Code To Phone\\
+	in 7-8 days
+\item Show Result In Different Format\\
+	in one week
+\item Enable Auto Switch
+	
+\item Performance Analysis And Optimization\\
+	based on the performance requirement 5-8 days
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%\small
+\balance
+\bibliographystyle{unsrtabbrv}
+%\bibliographystyle{unsrt}
+%\bibliographystyle{abbrv}
+%\footnotesize 
+%\bibliographystyle{acm}
+\bibliography{./bib/misconfig,./bib/standard,./bib/wing,./bib/cellular}
+
+
+\end{sloppypar}
+\end{document}
+
+
+
+
+
+
