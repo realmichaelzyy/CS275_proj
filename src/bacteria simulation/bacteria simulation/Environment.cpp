@@ -22,7 +22,7 @@ Environment::Environment(int size, int num_smart = 0, double prob_naive = 0) {
 	}
 	for (int k = 0; k < num_smart; ++k) {
 		Bacterium bacterium;
-		bacterium.initialize(count++, 2);
+		bacterium.initialize(-count++, 2);
 		bacteria.push_back(bacterium);
 	}
 }
@@ -53,7 +53,7 @@ void Environment::run(int tickNumber) {
 		// Add bacteria when not enough
 		while (bacteria.size() <= NEIGHBOUR_SIZE) {
 			Bacterium b;
-			b.initialize(count++, 0);
+			b.initialize(-(count++), 2);
 			bacteria.push_back(b);
 		}
 
